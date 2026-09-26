@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ariel Tkachenko · Apps</title>
+<meta name="description" content="Apps by Ariel Tkachenko, with their support pages and privacy policies.">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #c0262d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #ff6961;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.2; margin: 0 0 8px; }
+  .meta { color: var(--muted); margin: 0 0 28px; }
+
+  .app {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .app h2 { font-size: 22px; margin: 0 0 4px; }
+  .app p { margin: 0 0 12px; color: var(--muted); }
+  .app dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; }
+  .app dt { font-weight: 600; }
+  .app dd { margin: 0; }
+
+  footer { margin-top: 32px; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Ariel Tkachenko</h1>
+  <p class="meta">Apps, their support pages and privacy policies.</p>
+
+  <section class="app">
+    <h2>Generator</h2>
+    <p>Random numbers, passwords, lottery tickets, quotes, jokes, a quiz and QR codes, for iPhone and iPad.</p>
+    <dl>
+      <dt>Support</dt>
+      <dd><a href="static-pages/generator/support-en.html">English</a> · <a href="static-pages/generator/support-ru.html" hreflang="ru" lang="ru">Русский</a></dd>
+      <dt>Privacy</dt>
+      <dd><a href="static-pages/generator/privacy-en.html">English</a> · <a href="static-pages/generator/privacy-ru.html" hreflang="ru" lang="ru">Русский</a></dd>
+    </dl>
+  </section>
+
+  <footer>Contact: <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></footer>
+</div>
+</body>
+</html>

@@ -1,11 +1,17 @@
-# static-pages
+# SpicaThor.github.io
 
-Static pages (privacy policies, support pages, etc.) for my apps, served with GitHub Pages at
-https://spicathor.github.io/static-pages/
+Static pages for my apps (privacy policies, support pages) and the site's `app-ads.txt`, served with
+GitHub Pages at https://spicathor.github.io/
 
-| App | Page | URL |
-|---|---|---|
-| Generator (iOS) | Privacy Policy (English) | https://spicathor.github.io/static-pages/generator/privacy-en.html |
-| Generator (iOS) | Privacy Policy (Russian) | https://spicathor.github.io/static-pages/generator/privacy-ru.html |
+Until 2026-09-27 this repo was `static-pages`, a project site at `/static-pages/`. The pages kept their
+paths under `static-pages/` because the apps and their App Store listings link to them there: don't move
+them (GitHub Pages can't redirect).
+
+| Path | What |
+|---|---|
+| `index.html` | The site's front page: the apps and links to their pages |
+| `app-ads.txt` | Authorized ad sellers for the apps (AdMob). Found through each App Store listing's Marketing URL, whose host is this site |
+| `static-pages/generator/support-en.html`, `support-ru.html` | Generator (iOS) support, English and Russian |
+| `static-pages/generator/privacy-en.html`, `privacy-ru.html` | Generator (iOS) privacy policy, English and Russian |
 
 Each page is a single self-contained HTML file with no scripts, external fonts or trackers.
