@@ -13,5 +13,6 @@ them (GitHub Pages can't redirect).
 | `app-ads.txt` | Authorized ad sellers for the apps (AdMob). Found through each App Store listing's Marketing URL, whose host is this site |
 | `static-pages/generator/support-en.html`, `support-ru.html` | Generator (iOS) support, English and Russian |
 | `static-pages/generator/privacy-en.html`, `privacy-ru.html` | Generator (iOS) privacy policy, English and Russian |
+| `static-pages/generator/privacy-android-en.html`, `privacy-android-ru.html` | Generator for Android privacy policy, English and Russian (linked from the Android app, AdMob and Google Play) |
 
 Each page is a single self-contained HTML file with no scripts, external fonts or trackers.
