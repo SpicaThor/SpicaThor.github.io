@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Генератор — Політика конфіденційності</title>
+<meta name="description" content="Політика конфіденційності застосунку «Генератор» — випадкові числа, паролі, лотерейні квитки, вислови, жарти, вікторина та QR-коди. Розробник: Аріель Ткаченко.">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="en" href="privacy-en.html">
+<link rel="alternate" hreflang="ru" href="privacy-ru.html">
+<link rel="alternate" hreflang="uk" href="privacy-uk.html">
+<link rel="alternate" hreflang="he" href="privacy-he.html">
+<link rel="alternate" hreflang="ar" href="privacy-ar.html">
+<link rel="alternate" hreflang="es" href="privacy-es.html">
+<link rel="alternate" hreflang="pt" href="privacy-pt.html">
+<link rel="alternate" hreflang="fr" href="privacy-fr.html">
+<link rel="alternate" hreflang="de" href="privacy-de.html">
+<link rel="alternate" hreflang="it" href="privacy-it.html">
+<link rel="alternate" hreflang="pl" href="privacy-pl.html">
+<link rel="alternate" hreflang="tr" href="privacy-tr.html">
+<link rel="alternate" hreflang="id" href="privacy-id.html">
+<link rel="alternate" hreflang="hi" href="privacy-hi.html">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #c0262d;
+    --accent-soft: #fbeaea;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #ff6961;
+      --accent-soft: #3a1f22;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { display: flex; flex-wrap: wrap; gap: 4px; font-size: 14px; }
+  nav.lang a, nav.lang span {
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-decoration: none;
+  }
+  nav.lang a { color: var(--muted); }
+  nav.lang a:hover { color: var(--accent); }
+  nav.lang span { background: var(--surface); border: 1px solid var(--border); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">Політика конфіденційності</span>
+      <nav class="lang" aria-label="Мова">
+        <a href="privacy-en.html" hreflang="en" lang="en">English</a>
+        <a href="privacy-ru.html" hreflang="ru" lang="ru">Русский</a>
+        <span aria-current="page">Українська</span>
+        <a href="privacy-he.html" hreflang="he" lang="he">עברית</a>
+        <a href="privacy-ar.html" hreflang="ar" lang="ar">العربية</a>
+        <a href="privacy-es.html" hreflang="es" lang="es">Español</a>
+        <a href="privacy-pt.html" hreflang="pt" lang="pt">Português</a>
+        <a href="privacy-fr.html" hreflang="fr" lang="fr">Français</a>
+        <a href="privacy-de.html" hreflang="de" lang="de">Deutsch</a>
+        <a href="privacy-it.html" hreflang="it" lang="it">Italiano</a>
+        <a href="privacy-pl.html" hreflang="pl" lang="pl">Polski</a>
+        <a href="privacy-tr.html" hreflang="tr" lang="tr">Türkçe</a>
+        <a href="privacy-id.html" hreflang="id" lang="id">Bahasa Indonesia</a>
+        <a href="privacy-hi.html" hreflang="hi" lang="hi">हिन्दी</a>
+      </nav>
+    </div>
+    <h1>Генератор</h1>
+    <p class="meta">Випадкові числа, паролі, лотерейні квитки, вислови, жарти, вікторина та QR-коди · Останнє оновлення: 9 жовтня 2026 р.</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Зміст">
+      <strong>Зміст</strong>
+      <ol>
+        <li><a href="#about">Про цю політику</a></li>
+        <li><a href="#on-device">Що залишається на пристрої</a></li>
+        <li><a href="#collect">Які дані збираються</a></li>
+        <li><a href="#ads">Реклама та відстеження</a></li>
+        <li><a href="#purchases">Вбудовані покупки</a></li>
+        <li><a href="#third-parties">Сторонні сервіси</a></li>
+        <li><a href="#sharing">Передача та продаж даних</a></li>
+        <li><a href="#retention">Строк зберігання</a></li>
+        <li><a href="#security">Безпека</a></li>
+        <li><a href="#rights">Ваші права та вибір</a></li>
+        <li><a href="#children">Конфіденційність дітей</a></li>
+        <li><a href="#changes">Зміни політики</a></li>
+        <li><a href="#contact">Контакти</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>Коротко</h2>
+        <ul>
+          <li>Жодних облікових записів і реєстрації. Застосунок ніколи не питає ваше ім’я чи email.</li>
+          <li>Усе, що ви генеруєте (числа, паролі, квитки, QR-коди), створюється на вашому пристрої й ніколи мені не надсилається.</li>
+          <li>У безплатній версії показується реклама Google. Ви самі вирішуєте, чи може вона бути персоналізованою і чи може застосунок вас відстежувати.</li>
+          <li>Вислови, жарти й питання вікторини завантажуються з безплатних сторонніх сервісів, які, як і будь-який сайт, бачать вашу IP-адресу.</li>
+          <li>Анонімна статистика використання (які екрани та дії використовуються) допомагає мені покращувати застосунок.</li>
+          <li>Я ніколи не продаю ваші дані. Покупка <strong>«Прибрати рекламу»</strong> повністю вимикає рекламу.</li>
+        </ul>
+      </div>
+
+      <section id="about">
+        <h2>1. Про цю політику</h2>
+        <p>«Генератор» (далі — «застосунок») розробляє й підтримує незалежний розробник Аріель Ткаченко (далі — «я»). Застосунок можна безплатно завантажити й використовувати, він існує завдяки рекламі.</p>
+        <p>Ця політика пояснює, які дані збирає застосунок, навіщо, кому вони передаються і який вибір у вас є. Використовуючи застосунок, ви погоджуєтеся зі збиранням і використанням даних, описаними тут.</p>
+      </section>
+
+      <section id="on-device">
+        <h2>2. Що залишається на вашому пристрої</h2>
+        <p>Основні функції працюють повністю на пристрої, і їхній вміст ніколи не надсилається ні мені, ні будь-кому іншому:</p>
+        <ul>
+          <li><strong>Випадкові числа, паролі та лотерейні квитки</strong> генеруються локально. Надійність пароля теж перевіряється локально.</li>
+          <li><strong>QR-коди.</strong> Введені вами текст, назви й паролі мереж Wi-Fi перетворюються на QR-код на пристрої. Вони нікуди не надсилаються, і застосунок не зберігає їх після того, як ви підете з екрана.</li>
+          <li><strong>Контакти.</strong> Якщо ви створюєте QR-код із контакту, iOS дає змогу вибрати один контакт, і до QR-коду потрапляють лише його дані. Застосунок не може переглядати вашу адресну книгу й ніколи не завантажує дані контактів.</li>
+          <li><strong>Фото.</strong> Якщо ви додаєте логотип до QR-коду, використовується лише вибране вами зображення. Збережене зображення додається до вашої медіатеки. Нічого не завантажується.</li>
+          <li><strong>Налаштування</strong>, наприклад вибрані діапазони й параметри, зберігаються на пристрої. Якщо ви ввійшли в iCloud, Apple синхронізує їх з іншими вашими пристроями через ваш обліковий запис iCloud; мені вони не надсилаються. Логотип для QR-кодів, який ви вирішили зберегти для нових кодів, зберігається лише на цьому пристрої.</li>
+        </ul>
+        <p>Якщо ви ділитеся згенерованим вмістом, він потрапляє лише туди, куди ви його надішлете через стандартне меню «Поділитися» iOS.</p>
+      </section>
+
+      <section id="collect">
+        <h2>3. Які дані збираються</h2>
+        <p>Застосунок не збирає дані, які прямо вас ідентифікують, як-от ім’я, email, номер телефону чи точне місцезнаходження. Збираються такі технічні дані та дані про використання:</p>
+
+        <h3>Статистика використання (Firebase Analytics)</h3>
+        <ul>
+          <li>Які екрани ви відкриваєте та дії на кшталт «Згенерувати», «Поділитися» чи зміни налаштування. Записуються екран і дія, але ніколи не те, що ви згенерували.</li>
+          <li>Мова застосунку, версія застосунку, модель пристрою, версія iOS і приблизна країна (визначається за IP-адресою)</li>
+          <li>Випадковий ідентифікатор встановлення застосунку, а рекламний ідентифікатор пристрою — лише якщо ви дозволили відстеження</li>
+          <li>Чи завантажилася реклама, і події покупки «Прибрати рекламу» (ніколи не платіжні дані)</li>
+        </ul>
+
+        <h3>Анонімний вхід і онлайн-функції (Firebase Authentication та Realtime Database)</h3>
+        <ul>
+          <li>Для цих функцій застосунок входить у систему <strong>анонімно</strong>. Firebase призначає випадковий ідентифікатор користувача, не пов’язаний з вашою особою, email чи Apple Account.</li>
+          <li><strong>Статистика вікторини</strong> (на скільки питань ви відповіли і скільки правильно) зберігається під цим випадковим ідентифікатором, щоб зберегти ваш рахунок.</li>
+          <li><strong>Лічильники лотерейних квитків.</strong> Кожен згенерований квиток додається до спільних підсумків (наприклад, скільки «щасливих» квитків згенеровано загалом). Зберігаються лише підсумки — не ваші квитки й нічого, пов’язаного з вами.</li>
+        </ul>
+
+        <h3>Вислови, жарти й питання вікторини (сторонні сервіси)</h3>
+        <p>Вислови, жарти й питання вікторини доступні англійською та російською. Вони завантажуються з безплатних сторонніх сервісів залежно від мови застосунку:</p>
+        <ul>
+          <li><strong>Російська:</strong> вислови й питання вікторини — з сайту <a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a>, жарти — з сайту <a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></li>
+          <li><strong>Англійська:</strong> вислови — з <a href="https://zenquotes.io" target="_blank" rel="noopener">ZenQuotes</a>, жарти — з <a href="https://jokeapi.dev" target="_blank" rel="noopener">JokeAPI</a>, питання вікторини — з <a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></li>
+        </ul>
+        <p>Коли ви відкриваєте ці екрани, застосунок запитує вміст у сервісу. Як і будь-який сайт, сервіс отримує з кожним запитом вашу IP-адресу та основні відомості про запит. У російській вікторині вибрана вами відповідь також надсилається на randstuff.ru, який її перевіряє; в англійській відповіді перевіряються на вашому пристрої. Жодні інші дані про вас цим сервісам не передаються.</p>
+        <p>Іншими мовами застосунку ці екрани приховано, тому з цих сервісів нічого не завантажується.</p>
+      </section>
+
+      <section id="ads">
+        <h2>4. Реклама та відстеження</h2>
+        <p>У безплатній версії показується рекламний банер <strong>Google AdMob</strong>. Щоб показувати рекламу й вимірювати її ефективність, Google може збирати вашу IP-адресу, відомості про пристрій і застосунок, взаємодію з рекламою та, якщо ви дозволите, рекламний ідентифікатор пристрою (IDFA).</p>
+        <ul>
+          <li><strong>Згода (ЄЕЗ, Велика Британія, Швейцарія та деякі штати США).</strong> Там, де цього вимагає закон, застосунок показує форму згоди Google до завантаження реклами. Ви вирішуєте, чи можна використовувати ваші дані для персоналізованої реклами, і можете змінити рішення будь-коли в пункті <strong>«Налаштування конфіденційності»</strong> меню застосунку.</li>
+          <li><strong>Прозорість відстеження (App Tracking Transparency).</strong> iOS питає, чи може застосунок відстежувати ваші дії в застосунках і на сайтах інших компаній. Якщо ви виберете «Попросити застосунок не відстежувати», рекламний ідентифікатор не передається, і ви бачитимете неперсоналізовану рекламу. Змінити це можна будь-коли: <em>Налаштування iOS → Приватність і безпека → Відстеження</em>.</li>
+          <li><strong>«Прибрати рекламу».</strong> Після покупки «Прибрати рекламу» застосунок не завантажує рекламу й узагалі не показує запит на відстеження.</li>
+        </ul>
+        <p>Докладніше — у статті <a href="https://policies.google.com/technologies/partner-sites?hl=uk" target="_blank" rel="noopener">про те, як Google використовує дані із застосунків, що користуються його сервісами</a>.</p>
+      </section>
+
+      <section id="purchases">
+        <h2>5. Вбудовані покупки</h2>
+        <p>Необов’язкову покупку «Прибрати рекламу» повністю обробляє Apple через App Store. Я не отримую ваше ім’я, Apple Account чи платіжні дані. Застосунок лише перевіряє в Apple, чи активна покупка у вашому обліковому записі, щоб її можна було відновити на інших пристроях.</p>
+      </section>
+
+      <section id="third-parties">
+        <h2>6. Сторонні сервіси</h2>
+        <p>Ці сервіси обробляють дані для роботи застосунку, кожен — згідно з власною політикою конфіденційності:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Сервіс</th><th>Постачальник</th><th>Призначення</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+                <td>Google LLC</td>
+                <td>Аналітика, анонімний вхід, статистика вікторини й підсумки квитків</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=uk" target="_blank" rel="noopener">AdMob</a></td>
+                <td>Google LLC</td>
+                <td>Показ реклами, керування згодою</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">App Store</a></td>
+                <td>Apple Inc.</td>
+                <td>Вбудовані покупки; синхронізація ваших налаштувань через iCloud</td>
+              </tr>
+              <tr>
+                <td><a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a></td>
+                <td>randstuff.ru</td>
+                <td>Вислови й питання вікторини російською, перевірка відповідей російської вікторини</td>
+              </tr>
+              <tr>
+                <td><a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></td>
+                <td>shortiki.com</td>
+                <td>Жарти російською</td>
+              </tr>
+              <tr>
+                <td><a href="https://docs.zenquotes.io/privacy-policy/" target="_blank" rel="noopener">ZenQuotes</a></td>
+                <td>ZenQuotes.io</td>
+                <td>Вислови англійською</td>
+              </tr>
+              <tr>
+                <td><a href="https://sv443.net/privacypolicy/en" target="_blank" rel="noopener">JokeAPI</a></td>
+                <td>Sv443</td>
+                <td>Жарти англійською</td>
+              </tr>
+              <tr>
+                <td><a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></td>
+                <td>Pixeltail Games</td>
+                <td>Питання вікторини англійською</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Google обробляє дані на серверах по всьому світу, зокрема в США, із застосуванням стандартних заходів захисту даних.</p>
+      </section>
+
+      <section id="sharing">
+        <h2>7. Передача та продаж даних</h2>
+        <p>Я <strong>не</strong> продаю, не здаю в оренду й не обмінюю ваші дані. Вони передаються лише:</p>
+        <ul>
+          <li>постачальникам сервісів, переліченим вище, для роботи застосунку й показу реклами (відповідно до вашого вибору);</li>
+          <li>коли цього вимагає закон або для захисту прав і безпеки користувачів та інших осіб.</li>
+        </ul>
+      </section>
+
+      <section id="retention">
+        <h2>8. Строк зберігання</h2>
+        <ul>
+          <li>Дані <strong>аналітики</strong> автоматично видаляються після закінчення строку зберігання, заданого у Firebase (не більше 14 місяців).</li>
+          <li><strong>Статистика вікторини</strong> зберігається, доки ви не скинете її в застосунку (вона обнуляється).</li>
+          <li><strong>Підсумки квитків</strong> не є персональними даними й зберігаються безстроково.</li>
+          <li><strong>Рекламні дані</strong> зберігає Google згідно зі своєю політикою конфіденційності.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2>9. Безпека</h2>
+        <p>Дані, що надсилаються у Firebase і Google, шифруються під час передавання (HTTPS), а доступ до проєкту Firebase обмежено. Однак жоден спосіб передавання через інтернет чи електронного зберігання не захищений на 100%, тому я не можу гарантувати абсолютну безпеку.</p>
+      </section>
+
+      <section id="rights">
+        <h2>10. Ваші права та вибір</h2>
+        <p>Ви самі керуєте тим, що збирається:</p>
+        <ul>
+          <li><strong>Персоналізована реклама:</strong> змініть вибір у пункті <em>«Налаштування конфіденційності»</em> меню застосунку (якщо він доступний у вашому регіоні).</li>
+          <li><strong>Відстеження:</strong> вимкніть його в <em>Налаштування iOS → Приватність і безпека → Відстеження</em>.</li>
+          <li><strong>Реклама повністю:</strong> купіть «Прибрати рекламу».</li>
+          <li><strong>Статистика вікторини:</strong> скиньте її на екрані вікторини.</li>
+          <li><strong>Усе одразу:</strong> видалення застосунку припиняє будь-яке збирання даних і видаляє його випадкові ідентифікатори.</li>
+        </ul>
+        <p>Залежно від місця вашого проживання (наприклад, згідно з GDPR у ЄС і Великій Британії або CCPA в Каліфорнії) ви також маєте право на доступ до своїх персональних даних, їх виправлення чи видалення, право заперечити проти обробки або обмежити її, а також право подати скаргу до місцевого органу захисту даних.</p>
+        <p>Оскільки в застосунку немає облікових записів і використовуються лише випадкові ідентифікатори, зазвичай я не можу зіставити збережені дані з конкретною людиною. Якщо ви хочете надіслати запит, напишіть мені, і я постараюся допомогти протягом 30 днів.</p>
+        <p><strong>Правова підстава (ЄЕЗ і Велика Британія):</strong> статистика використання та онлайн-функції обробляються на підставі мого законного інтересу в роботі й покращенні застосунку. Персоналізована реклама показується лише з вашої згоди.</p>
+      </section>
+
+      <section id="children">
+        <h2>11. Конфіденційність дітей</h2>
+        <p>Застосунок не призначений для дітей молодше 13 років, і я свідомо не збираю їхні персональні дані. Якщо ви батько, мати чи опікун і вважаєте, що ваша дитина надала персональні дані, зв’яжіться зі мною, і я їх видалю.</p>
+      </section>
+
+      <section id="changes">
+        <h2>12. Зміни політики</h2>
+        <p>Я можу час від часу оновлювати цю політику, наприклад у разі появи нових функцій. Зміни публікуються на цій сторінці з новою датою «Останнє оновлення» й набирають чинності одразу після публікації.</p>
+        <p>У разі розбіжностей між версіями перевагу має <a href="privacy-en.html" hreflang="en">англійська версія</a>.</p>
+      </section>
+
+      <section id="contact">
+        <h2>13. Контакти</h2>
+        <p>Питання, запити чи пропозиції щодо цієї політики конфіденційності? Напишіть мені:</p>
+        <div class="contact-card">
+          <span>Аріель Ткаченко · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%3A%20%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%89%D0%BE%D0%B4%D0%BE%20%D0%BA%D0%BE%D0%BD%D1%84%D1%96%D0%B4%D0%B5%D0%BD%D1%86%D1%96%D0%B9%D0%BD%D0%BE%D1%81%D1%82%D1%96">Написати</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Аріель Ткаченко · «Генератор» для iOS</footer>
+</div>
+</body>
+</html>

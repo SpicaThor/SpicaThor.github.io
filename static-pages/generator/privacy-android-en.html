@@ -8,6 +8,18 @@
 <meta name="color-scheme" content="light dark">
 <link rel="alternate" hreflang="en" href="privacy-android-en.html">
 <link rel="alternate" hreflang="ru" href="privacy-android-ru.html">
+<link rel="alternate" hreflang="uk" href="privacy-android-uk.html">
+<link rel="alternate" hreflang="he" href="privacy-android-he.html">
+<link rel="alternate" hreflang="ar" href="privacy-android-ar.html">
+<link rel="alternate" hreflang="es" href="privacy-android-es.html">
+<link rel="alternate" hreflang="pt" href="privacy-android-pt.html">
+<link rel="alternate" hreflang="fr" href="privacy-android-fr.html">
+<link rel="alternate" hreflang="de" href="privacy-android-de.html">
+<link rel="alternate" hreflang="it" href="privacy-android-it.html">
+<link rel="alternate" hreflang="pl" href="privacy-android-pl.html">
+<link rel="alternate" hreflang="tr" href="privacy-android-tr.html">
+<link rel="alternate" hreflang="id" href="privacy-android-id.html">
+<link rel="alternate" hreflang="hi" href="privacy-android-hi.html">
 <style>
   :root {
     --bg: #f6f7f9;
@@ -60,7 +72,7 @@
     align-items: center;
     gap: 12px;
   }
-  nav.lang { display: flex; gap: 4px; font-size: 14px; }
+  nav.lang { display: flex; flex-wrap: wrap; gap: 4px; font-size: 14px; }
   nav.lang a, nav.lang span {
     padding: 4px 10px;
     border-radius: 999px;
@@ -105,7 +117,7 @@
     font-size: 14px;
   }
   nav.toc strong { display: block; margin-bottom: 8px; }
-  nav.toc ol { margin: 0; padding-left: 20px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
   nav.toc li { margin: 4px 0; }
   nav.toc a { color: var(--muted); text-decoration: none; }
   nav.toc a:hover { color: var(--accent); }
@@ -133,7 +145,7 @@
     margin-top: 20px;
   }
   .summary h2 { color: var(--ok); font-size: 18px; }
-  .summary ul { padding-left: 20px; margin: 0; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
 
   .table-scroll { overflow-x: auto; margin-bottom: 12px; }
   table {
@@ -143,7 +155,7 @@
     font-size: 15px;
   }
   th, td {
-    text-align: left;
+    text-align: start;
     vertical-align: top;
     padding: 10px 12px;
     border-bottom: 1px solid var(--border);
@@ -197,10 +209,22 @@
       <nav class="lang" aria-label="Language">
         <span aria-current="page">English</span>
         <a href="privacy-android-ru.html" hreflang="ru" lang="ru">Русский</a>
+        <a href="privacy-android-uk.html" hreflang="uk" lang="uk">Українська</a>
+        <a href="privacy-android-he.html" hreflang="he" lang="he">עברית</a>
+        <a href="privacy-android-ar.html" hreflang="ar" lang="ar">العربية</a>
+        <a href="privacy-android-es.html" hreflang="es" lang="es">Español</a>
+        <a href="privacy-android-pt.html" hreflang="pt" lang="pt">Português</a>
+        <a href="privacy-android-fr.html" hreflang="fr" lang="fr">Français</a>
+        <a href="privacy-android-de.html" hreflang="de" lang="de">Deutsch</a>
+        <a href="privacy-android-it.html" hreflang="it" lang="it">Italiano</a>
+        <a href="privacy-android-pl.html" hreflang="pl" lang="pl">Polski</a>
+        <a href="privacy-android-tr.html" hreflang="tr" lang="tr">Türkçe</a>
+        <a href="privacy-android-id.html" hreflang="id" lang="id">Bahasa Indonesia</a>
+        <a href="privacy-android-hi.html" hreflang="hi" lang="hi">हिन्दी</a>
       </nav>
     </div>
     <h1>Generator</h1>
-    <p class="meta">Random numbers, passwords, lottery tickets, quotes, jokes, quiz &amp; QR codes · Last updated: October 2, 2026</p>
+    <p class="meta">Random numbers, passwords, lottery tickets, quotes, jokes, quiz &amp; QR codes · Last updated: October 9, 2026</p>
   </header>
 
   <div class="layout">
@@ -276,12 +300,13 @@
         </ul>
 
         <h3>Quotes, jokes and quiz questions (third-party content services)</h3>
-        <p>Quotes, jokes and quiz questions are loaded from free third-party services, depending on the app's language:</p>
+        <p>Quotes, jokes and quiz questions are available in English and Russian. They're loaded from free third-party services, depending on the app's language:</p>
         <ul>
           <li><strong>Russian:</strong> quotes and quiz questions from <a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a>, jokes from <a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></li>
-          <li><strong>Other languages:</strong> quotes from <a href="https://zenquotes.io" target="_blank" rel="noopener">ZenQuotes</a>, jokes from <a href="https://jokeapi.dev" target="_blank" rel="noopener">JokeAPI</a>, quiz questions from <a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></li>
+          <li><strong>English:</strong> quotes from <a href="https://zenquotes.io" target="_blank" rel="noopener">ZenQuotes</a>, jokes from <a href="https://jokeapi.dev" target="_blank" rel="noopener">JokeAPI</a>, quiz questions from <a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></li>
         </ul>
-        <p>When you open these screens, the app requests content from the service. Like any website, the service receives your IP address and basic request details with each request. In the Russian quiz, the answer you pick is also sent to randstuff.ru, which checks it; in other languages, answers are checked on your device. No other information about you is sent to these services.</p>
+        <p>When you open these screens, the app requests content from the service. Like any website, the service receives your IP address and basic request details with each request. In the Russian quiz, the answer you pick is also sent to randstuff.ru, which checks it; in English, answers are checked on your device. No other information about you is sent to these services.</p>
+        <p>In the app's other languages these screens are hidden, so nothing is loaded from these services.</p>
       </section>
 
       <section id="ads">

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מחולל ל-Android — מדיניות פרטיות</title>
+<meta name="description" content="מדיניות הפרטיות של מחולל ל-Android, האפליקציה החינמית למספרים אקראיים, סיסמאות, כרטיסי הגרלה, ציטוטים, בדיחות, חידון וקודי QR, מאת Ariel Tkachenko.">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="en" href="privacy-android-en.html">
+<link rel="alternate" hreflang="ru" href="privacy-android-ru.html">
+<link rel="alternate" hreflang="uk" href="privacy-android-uk.html">
+<link rel="alternate" hreflang="he" href="privacy-android-he.html">
+<link rel="alternate" hreflang="ar" href="privacy-android-ar.html">
+<link rel="alternate" hreflang="es" href="privacy-android-es.html">
+<link rel="alternate" hreflang="pt" href="privacy-android-pt.html">
+<link rel="alternate" hreflang="fr" href="privacy-android-fr.html">
+<link rel="alternate" hreflang="de" href="privacy-android-de.html">
+<link rel="alternate" hreflang="it" href="privacy-android-it.html">
+<link rel="alternate" hreflang="pl" href="privacy-android-pl.html">
+<link rel="alternate" hreflang="tr" href="privacy-android-tr.html">
+<link rel="alternate" hreflang="id" href="privacy-android-id.html">
+<link rel="alternate" hreflang="hi" href="privacy-android-hi.html">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #c0262d;
+    --accent-soft: #fbeaea;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #ff6961;
+      --accent-soft: #3a1f22;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { display: flex; flex-wrap: wrap; gap: 4px; font-size: 14px; }
+  nav.lang a, nav.lang span {
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-decoration: none;
+  }
+  nav.lang a { color: var(--muted); }
+  nav.lang a:hover { color: var(--accent); }
+  nav.lang span { background: var(--surface); border: 1px solid var(--border); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">מדיניות פרטיות · Android</span>
+      <nav class="lang" aria-label="שפה">
+        <a href="privacy-android-en.html" hreflang="en" lang="en">English</a>
+        <a href="privacy-android-ru.html" hreflang="ru" lang="ru">Русский</a>
+        <a href="privacy-android-uk.html" hreflang="uk" lang="uk">Українська</a>
+        <span aria-current="page">עברית</span>
+        <a href="privacy-android-ar.html" hreflang="ar" lang="ar">العربية</a>
+        <a href="privacy-android-es.html" hreflang="es" lang="es">Español</a>
+        <a href="privacy-android-pt.html" hreflang="pt" lang="pt">Português</a>
+        <a href="privacy-android-fr.html" hreflang="fr" lang="fr">Français</a>
+        <a href="privacy-android-de.html" hreflang="de" lang="de">Deutsch</a>
+        <a href="privacy-android-it.html" hreflang="it" lang="it">Italiano</a>
+        <a href="privacy-android-pl.html" hreflang="pl" lang="pl">Polski</a>
+        <a href="privacy-android-tr.html" hreflang="tr" lang="tr">Türkçe</a>
+        <a href="privacy-android-id.html" hreflang="id" lang="id">Bahasa Indonesia</a>
+        <a href="privacy-android-hi.html" hreflang="hi" lang="hi">हिन्दी</a>
+      </nav>
+    </div>
+    <h1>מחולל</h1>
+    <p class="meta">מספרים אקראיים, סיסמאות, כרטיסי הגרלה, ציטוטים, בדיחות, חידון וקודי QR · עודכן לאחרונה: 9 באוקטובר 2026</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="תוכן העניינים">
+      <strong>תוכן העניינים</strong>
+      <ol>
+        <li><a href="#about">על המדיניות</a></li>
+        <li><a href="#on-device">מה נשאר במכשיר</a></li>
+        <li><a href="#collect">מידע שנאסף</a></li>
+        <li><a href="#ads">פרסומות ומעקב</a></li>
+        <li><a href="#purchases">רכישות בתוך האפליקציה</a></li>
+        <li><a href="#third-parties">שירותי צד שלישי</a></li>
+        <li><a href="#sharing">שיתוף ומכירה</a></li>
+        <li><a href="#retention">שמירת נתונים</a></li>
+        <li><a href="#security">אבטחה</a></li>
+        <li><a href="#rights">הזכויות והבחירות שלכם</a></li>
+        <li><a href="#children">פרטיות ילדים</a></li>
+        <li><a href="#changes">שינויים במדיניות</a></li>
+        <li><a href="#contact">יצירת קשר</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>בקצרה</h2>
+        <ul>
+          <li>בלי חשבון ובלי הרשמה. האפליקציה אף פעם לא מבקשת את השם או כתובת המייל שלכם.</li>
+          <li>כל מה שאתם יוצרים (מספרים, סיסמאות, כרטיסים, קודי QR) נוצר במכשיר שלכם ואף פעם לא נשלח אליי.</li>
+          <li>הגרסה החינמית מציגה פרסומות של Google. היכן שהחוק מחייב, אתם בוחרים אם הן יותאמו אישית.</li>
+          <li>ציטוטים, בדיחות ושאלות חידון נטענים משירותי צד שלישי חינמיים, שרואים את כתובת ה-IP שלכם כמו כל אתר.</li>
+          <li>סטטיסטיקת שימוש אנונימית (באילו מסכים ופעולות משתמשים) עוזרת לי לשפר את האפליקציה.</li>
+          <li>אני אף פעם לא מוכר את הנתונים שלכם. רכישת <strong>הסרת פרסומות</strong> מכבה את הפרסומות לגמרי.</li>
+        </ul>
+      </div>
+
+      <section id="about">
+        <h2>1. על המדיניות</h2>
+        <p>מחולל (״האפליקציה״) נבנה ומתוחזק על ידי Ariel Tkachenko, מפתח עצמאי (״אני״). האפליקציה חינמית להורדה ולשימוש, ונתמכת על ידי פרסומות.</p>
+        <p>המדיניות הזו חלה על <strong>מחולל ל-Android</strong>. לאפליקציה ל-iPhone ול-iPad, ראו את <a href="privacy-he.html">מדיניות הפרטיות ל-iOS</a>.</p>
+        <p>המדיניות הזו מסבירה איזה מידע האפליקציה אוספת, למה, עם מי הוא משותף, ואילו בחירות עומדות לרשותכם. השימוש באפליקציה מהווה הסכמה לאיסוף ולשימוש במידע כמתואר כאן.</p>
+      </section>
+
+      <section id="on-device">
+        <h2>2. מה נשאר במכשיר שלכם</h2>
+        <p>התכונות העיקריות פועלות כולן במכשיר, והתוכן שלהן אף פעם לא נשלח אליי או לאף אחד אחר:</p>
+        <ul>
+          <li><strong>מספרים אקראיים, סיסמאות וכרטיסי הגרלה</strong> נוצרים במכשיר. גם חוזק הסיסמה נבדק במכשיר.</li>
+          <li><strong>קודי QR.</strong> טקסט, שמות וסיסמאות של רשתות Wi-Fi שאתם מזינים הופכים לקוד QR במכשיר. הם לא נשלחים לשום מקום, והאפליקציה לא שומרת אותם אחרי שאתם עוזבים את המסך.</li>
+          <li><strong>אנשי קשר.</strong> אם אתם יוצרים קוד QR מאיש קשר, בורר אנשי הקשר של Android מאפשר לבחור איש קשר אחד. ב-Android 17 ואילך האפליקציה מקבלת רק את הפרטים שנכנסים לקוד (שם, מספרי טלפון, כתובות מייל, חברה, כתובות ואתרים) ואת תמונת איש הקשר, שמוצגת במרכז הקוד; בגרסאות קודמות, רק את שם איש הקשר ואת מספר הטלפון שבחרתם. האפליקציה לא יכולה לעיין בפנקס הכתובות שלכם (אין לה הרשאת אנשי קשר) ואף פעם לא מעלה פרטי אנשי קשר.</li>
+          <li><strong>תמונות.</strong> אם אתם מוסיפים לוגו לקוד QR, בורר התמונות של Android מעביר לאפליקציה רק את התמונה שבחרתם. שום דבר לא מועלה.</li>
+          <li><strong>הגדרות</strong>, כמו הטווחים והאפשרויות המועדפים עליכם, נשמרות במכשיר. אם המכשיר מגבה לחשבון Google שלכם, Android עשויה לכלול אותן בגיבוי ולשחזר אותן במכשיר חדש; הן אף פעם לא נשלחות אליי. לוגו QR שבחרתם לשמור לקודים חדשים לא נכלל בגיבויים ונשאר במכשיר הזה בלבד.</li>
+        </ul>
+        <p>אם אתם משתפים תוכן שנוצר, הוא מגיע רק לאן שבחרתם לשלוח אותו, דרך גיליון השיתוף הרגיל של Android.</p>
+      </section>
+
+      <section id="collect">
+        <h2>3. מידע שנאסף</h2>
+        <p>האפליקציה לא אוספת מידע שמזהה אתכם ישירות, כמו שם, כתובת מייל, מספר טלפון או מיקום מדויק. היא כן אוספת את המידע הטכני ומידע השימוש הבאים:</p>
+
+        <h3>סטטיסטיקת שימוש (Firebase Analytics)</h3>
+        <ul>
+          <li>אילו מסכים אתם פותחים ופעולות כמו ״צור״, ״שיתוף״ או שינוי הגדרה. נרשמים המסך והפעולה, אף פעם לא מה שיצרתם.</li>
+          <li>שפת האפליקציה, גרסת האפליקציה, דגם המכשיר, גרסת Android ומדינה משוערת (לפי כתובת ה-IP)</li>
+          <li>מזהה אקראי של התקנת האפליקציה, ומזהה הפרסום של המכשיר, שאפשר למחוק או לאפס ב<em>הגדרות Android ← אבטחה ופרטיות ← פרטיות ← מודעות</em></li>
+          <li>אם פרסומות נטענו ואירועי רכישה של הסרת פרסומות (אף פעם לא פרטי תשלום)</li>
+        </ul>
+
+        <h3>כניסה אנונימית ותכונות מקוונות (Firebase Authentication ו-Realtime Database)</h3>
+        <ul>
+          <li>לתכונות האלה האפליקציה מתחברת <strong>באופן אנונימי</strong>. Firebase מקצה מזהה משתמש אקראי שאינו מקושר לזהות שלכם, למייל או לחשבון Google.</li>
+          <li><strong>סטטיסטיקת החידון</strong> (על כמה שאלות עניתם וכמה נכון) נשמרת תחת המזהה האקראי הזה כדי שהניקוד שלכם יישמר.</li>
+          <li><strong>מוני כרטיסי ההגרלה.</strong> האפליקציה מוסיפה כל כרטיס שנוצר לסיכומים משותפים (למשל, כמה כרטיסי ״מזל״ נוצרו בסך הכול). נשמרים רק הסיכומים, לא הכרטיסים שלכם ושום דבר שמקושר אליכם.</li>
+        </ul>
+
+        <h3>ציטוטים, בדיחות ושאלות חידון (שירותי תוכן של צד שלישי)</h3>
+        <p>ציטוטים, בדיחות ושאלות חידון זמינים באנגלית וברוסית. הם נטענים משירותי צד שלישי חינמיים, לפי שפת האפליקציה:</p>
+        <ul>
+          <li><strong>רוסית:</strong> ציטוטים ושאלות חידון מ-<a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a>, בדיחות מ-<a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></li>
+          <li><strong>אנגלית:</strong> ציטוטים מ-<a href="https://zenquotes.io" target="_blank" rel="noopener">ZenQuotes</a>, בדיחות מ-<a href="https://jokeapi.dev" target="_blank" rel="noopener">JokeAPI</a>, שאלות חידון מ-<a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></li>
+        </ul>
+        <p>כשאתם פותחים את המסכים האלה, האפליקציה מבקשת תוכן מהשירות. כמו כל אתר, השירות מקבל עם כל בקשה את כתובת ה-IP שלכם ופרטים בסיסיים על הבקשה. בחידון ברוסית, התשובה שבחרתם נשלחת גם ל-randstuff.ru, שבודק אותה; באנגלית, התשובות נבדקות במכשיר שלכם. שום מידע אחר עליכם לא נשלח לשירותים האלה.</p>
+        <p>בשאר השפות של האפליקציה המסכים האלה מוסתרים, ולכן שום דבר לא נטען מהשירותים האלה.</p>
+      </section>
+
+      <section id="ads">
+        <h2>4. פרסומות ומעקב</h2>
+        <p>הגרסה החינמית מציגה באנר פרסומת של <strong>Google AdMob</strong>. כדי להציג פרסומות ולמדוד אותן, Google עשויה לאסוף את כתובת ה-IP שלכם, מידע על המכשיר והאפליקציה, אינטראקציות עם פרסומות ואת מזהה הפרסום של המכשיר, אם יש לו.</p>
+        <ul>
+          <li><strong>הסכמה (האזור הכלכלי האירופי, בריטניה, שווייץ וחלק ממדינות ארה״ב).</strong> היכן שהחוק מחייב, האפליקציה מציגה את טופס ההסכמה של Google לפני שנטענות פרסומות. אתם בוחרים אם מותר להשתמש בנתונים שלכם לפרסומות מותאמות אישית, ואפשר לשנות את הבחירה בכל עת דרך <strong>הגדרות פרטיות</strong> בתפריט האפליקציה.</li>
+          <li><strong>מזהה פרסום.</strong> Android מאפשרת למחוק או לאפס את מזהה הפרסום בכל עת ב<em>הגדרות Android ← אבטחה ופרטיות ← פרטיות ← מודעות</em> (הנתיב המדויק תלוי במכשיר). בלעדיו, פרסומות לא מותאמות אישית על פיו.</li>
+          <li><strong>הסרת פרסומות.</strong> אם תרכשו את הסרת הפרסומות, האפליקציה לא תטען פרסומות בכלל.</li>
+        </ul>
+        <p>מידע נוסף ב<a href="https://policies.google.com/technologies/partner-sites?hl=he" target="_blank" rel="noopener">איך Google משתמשת במידע מאפליקציות שמשתמשות בשירותים שלה</a>.</p>
+      </section>
+
+      <section id="purchases">
+        <h2>5. רכישות בתוך האפליקציה</h2>
+        <p>הרכישה האופציונלית של הסרת פרסומות מעובדת כולה על ידי Google דרך Google Play. אני לא מקבל את השם שלכם, את חשבון ה-Google או פרטי תשלום. האפליקציה רק בודקת מול Google Play אם הרכישה פעילה בחשבון שלכם, כדי שאפשר יהיה לשחזר אותה במכשירים האחרים שלכם.</p>
+      </section>
+
+      <section id="third-parties">
+        <h2>6. שירותי צד שלישי</h2>
+        <p>השירותים האלה מעבדים נתונים עבור האפליקציה, כל אחד לפי מדיניות הפרטיות שלו:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>שירות</th><th>ספק</th><th>מטרה</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+                <td>Google LLC</td>
+                <td>ניתוח נתונים, כניסה אנונימית, סטטיסטיקת חידון וסיכומי כרטיסים</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=he" target="_blank" rel="noopener">AdMob</a></td>
+                <td>Google LLC</td>
+                <td>הצגת פרסומות, ניהול הסכמה</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=he" target="_blank" rel="noopener">Google Play</a></td>
+                <td>Google LLC</td>
+                <td>רכישות בתוך האפליקציה; גיבוי המכשיר שלכם, אם הוא מופעל</td>
+              </tr>
+              <tr>
+                <td><a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a></td>
+                <td>randstuff.ru</td>
+                <td>ציטוטים ושאלות חידון ברוסית, בדיקת תשובות בחידון ברוסית</td>
+              </tr>
+              <tr>
+                <td><a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></td>
+                <td>shortiki.com</td>
+                <td>בדיחות ברוסית</td>
+              </tr>
+              <tr>
+                <td><a href="https://docs.zenquotes.io/privacy-policy/" target="_blank" rel="noopener">ZenQuotes</a></td>
+                <td>ZenQuotes.io</td>
+                <td>ציטוטים באנגלית</td>
+              </tr>
+              <tr>
+                <td><a href="https://sv443.net/privacypolicy/en" target="_blank" rel="noopener">JokeAPI</a></td>
+                <td>Sv443</td>
+                <td>בדיחות באנגלית</td>
+              </tr>
+              <tr>
+                <td><a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></td>
+                <td>Pixeltail Games</td>
+                <td>שאלות חידון באנגלית</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Google מעבדת נתונים בשרתים ברחבי העולם, כולל בארצות הברית, לפי אמצעי הגנת המידע הסטנדרטיים שלה.</p>
+      </section>
+
+      <section id="sharing">
+        <h2>7. שיתוף ומכירה של נתונים</h2>
+        <p>אני <strong>לא</strong> מוכר, משכיר או סוחר במידע שלכם. הוא משותף רק:</p>
+        <ul>
+          <li>עם ספקי השירות שמפורטים למעלה, כדי להפעיל את האפליקציה ולהציג פרסומות (לפי הבחירות שלכם לגבי פרסומות)</li>
+          <li>כשהחוק מחייב, או כדי להגן על הזכויות והבטיחות של משתמשים או של אחרים</li>
+        </ul>
+      </section>
+
+      <section id="retention">
+        <h2>8. שמירת נתונים</h2>
+        <ul>
+          <li>נתוני <strong>ניתוח</strong> נמחקים אוטומטית בתום תקופת השמירה שהוגדרה ב-Firebase (לכל היותר 14 חודשים).</li>
+          <li><strong>סטטיסטיקת החידון</strong> נשמרת עד שתאפסו אותה באפליקציה, מה שמאפס אותה.</li>
+          <li><strong>סיכומי הכרטיסים</strong> אינם מידע אישי ונשמרים ללא הגבלת זמן.</li>
+          <li><strong>נתוני פרסום</strong> נשמרים על ידי Google כמתואר במדיניות הפרטיות שלה.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2>9. אבטחה</h2>
+        <p>נתונים שנשלחים ל-Firebase ול-Google מוצפנים בזמן ההעברה (HTTPS), והגישה לפרויקט ה-Firebase מוגבלת. עם זאת, אף שיטת העברה באינטרנט או אחסון אלקטרוני אינה בטוחה ב-100%, ולכן איני יכול להבטיח אבטחה מוחלטת.</p>
+      </section>
+
+      <section id="rights">
+        <h2>10. הזכויות והבחירות שלכם</h2>
+        <p>אתם שולטים במה שנאסף:</p>
+        <ul>
+          <li><strong>פרסומות מותאמות אישית:</strong> שנו את הבחירה דרך <em>הגדרות פרטיות</em> בתפריט האפליקציה (היכן שזה זמין באזור שלכם).</li>
+          <li><strong>מזהה פרסום:</strong> מחקו או אפסו אותו ב<em>הגדרות Android ← אבטחה ופרטיות ← פרטיות ← מודעות</em>.</li>
+          <li><strong>פרסומות בכלל:</strong> רכשו את הסרת הפרסומות.</li>
+          <li><strong>סטטיסטיקת החידון:</strong> אפסו אותה במסך החידון.</li>
+          <li><strong>הכול:</strong> הסרת האפליקציה מפסיקה כל איסוף ומוחקת את המזהים האקראיים שלה.</li>
+        </ul>
+        <p>בהתאם למקום מגוריכם (למשל, לפי ה-GDPR באיחוד האירופי ובבריטניה או ה-CCPA בקליפורניה), יש לכם גם זכות לעיין במידע האישי שלכם, לתקן או למחוק אותו, להתנגד לעיבודו או להגביל אותו, ולהגיש תלונה לרשות להגנת מידע המקומית.</p>
+        <p>מכיוון שלאפליקציה אין חשבונות והיא משתמשת רק במזהים אקראיים, בדרך כלל איני יכול לשייך נתונים שמורים לאדם מסוים. אם תרצו להגיש בקשה, שלחו לי מייל ואעשה כמיטב יכולתי לעזור תוך 30 יום.</p>
+        <p><strong>בסיס משפטי (האזור הכלכלי האירופי ובריטניה):</strong> סטטיסטיקת השימוש והתכונות המקוונות מעובדות על בסיס האינטרס הלגיטימי שלי בהפעלת האפליקציה ובשיפורה. פרסומות מותאמות אישית מוצגות רק בהסכמתכם.</p>
+      </section>
+
+      <section id="children">
+        <h2>11. פרטיות ילדים</h2>
+        <p>האפליקציה אינה מיועדת לילדים מתחת לגיל 13, ואני לא אוסף מהם ביודעין מידע אישי. אם אתם הורים או אפוטרופוסים וסבורים שילדכם מסר מידע אישי, צרו איתי קשר ואמחק אותו.</p>
+      </section>
+
+      <section id="changes">
+        <h2>12. שינויים במדיניות</h2>
+        <p>ייתכן שאעדכן את המדיניות מעת לעת, למשל כשנוספות לאפליקציה תכונות חדשות. השינויים מתפרסמים בדף הזה עם תאריך ״עודכן לאחרונה״ חדש ונכנסים לתוקף מיד עם פרסומם.</p>
+        <p>אם יש הבדלים בין הגרסאות, <a href="privacy-android-en.html" hreflang="en">הגרסה האנגלית</a> קובעת.</p>
+      </section>
+
+      <section id="contact">
+        <h2>13. יצירת קשר</h2>
+        <p>שאלות, בקשות או הצעות לגבי מדיניות הפרטיות? צרו קשר:</p>
+        <div class="contact-card">
+          <span>Ariel Tkachenko · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=%D7%9E%D7%97%D7%95%D7%9C%D7%9C%3A%20%D7%A9%D7%90%D7%9C%D7%94%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA">שלחו לי מייל</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Ariel Tkachenko · מחולל ל-Android</footer>
+</div>
+</body>
+</html>
