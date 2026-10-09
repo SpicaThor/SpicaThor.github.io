@@ -26,6 +26,7 @@ Each page is a single self-contained HTML file with no scripts, external fonts o
 Don't edit them by hand. Change the template (`tools/generator/support.html`, `privacy.html`, `style.css`) or
 the text (`tools/generator/text/<lang>.json`, one table per language, with `_ios` / `_android` variants where
 the platforms differ), then run `python3 tools/generator/build.py`. It checks that every table has every key
-with the same tags and links as English, writes all pages and updates the front page's language links.
+with the same tags and links as English, writes all pages (each with a script-free language dropdown,
+`<details>`) and updates the front page's language links.
 English and Russian are the originals; the other 12 were machine-translated (2026-10-09) and say that the
 English version prevails. Hebrew and Arabic pages are right to left.

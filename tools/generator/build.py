@@ -29,6 +29,11 @@ PAGES = {  # file prefix -> (template, platform)
 }
 
 STYLE = (HERE / "style.css").read_text().rstrip("\n")
+GLOBE = ('<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">'
+         '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9'
+         'c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>')
+CHEVRON = ('<svg class="chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" '
+           'stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>')
 TABLES = {code: json.loads((HERE / f"text/{code}.json").read_text()) for code in LANGUAGES}
 
 
@@ -53,10 +58,19 @@ def page(prefix, code):
     template, platform = PAGES[prefix]
     table = TABLES[code]
     privacy = "privacy" if platform == "ios" else "privacy-android"
-    nav = "\n".join(
-        f'        <span aria-current="page">{TABLES[c]["name"]}</span>' if c == code
-        else f'        <a href="{prefix}-{c}.html" hreflang="{c}" lang="{c}">{TABLES[c]["name"]}</a>'
+    # The language menu: a <details> dropdown, so the pages need no script.
+    items = "\n".join(
+        f'            <li><a href="{prefix}-{c}.html" hreflang="{c}" lang="{c}"'
+        + (' aria-current="page"' if c == code else "") + f'>{TABLES[c]["name"]}</a></li>'
         for c in LANGUAGES)
+    nav = f"""      <nav class="lang" aria-label="{table['language']}">
+        <details>
+          <summary>{GLOBE}<span>{table['name']}</span>{CHEVRON}</summary>
+          <ul>
+{items}
+          </ul>
+        </details>
+      </nav>"""
     alternates = "\n".join(f'<link rel="alternate" hreflang="{c}" href="{prefix}-{c}.html">' for c in LANGUAGES)
     tokens = {
         "privacy_href": f"{privacy}-{code}.html",
