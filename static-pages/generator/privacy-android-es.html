@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generador para Android — Política de privacidad</title>
+<meta name="description" content="Política de privacidad de Generador para Android, la app gratuita de números aleatorios, contraseñas, boletos de lotería, citas, chistes, trivia y códigos QR de Ariel Tkachenko.">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="en" href="privacy-android-en.html">
+<link rel="alternate" hreflang="ru" href="privacy-android-ru.html">
+<link rel="alternate" hreflang="uk" href="privacy-android-uk.html">
+<link rel="alternate" hreflang="he" href="privacy-android-he.html">
+<link rel="alternate" hreflang="ar" href="privacy-android-ar.html">
+<link rel="alternate" hreflang="es" href="privacy-android-es.html">
+<link rel="alternate" hreflang="pt" href="privacy-android-pt.html">
+<link rel="alternate" hreflang="fr" href="privacy-android-fr.html">
+<link rel="alternate" hreflang="de" href="privacy-android-de.html">
+<link rel="alternate" hreflang="it" href="privacy-android-it.html">
+<link rel="alternate" hreflang="pl" href="privacy-android-pl.html">
+<link rel="alternate" hreflang="tr" href="privacy-android-tr.html">
+<link rel="alternate" hreflang="id" href="privacy-android-id.html">
+<link rel="alternate" hreflang="hi" href="privacy-android-hi.html">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #c0262d;
+    --accent-soft: #fbeaea;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #ff6961;
+      --accent-soft: #3a1f22;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { position: relative; font-size: 14px; }
+  nav.lang summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  nav.lang summary::-webkit-details-marker { display: none; }
+  nav.lang summary:hover { border-color: var(--muted); }
+  nav.lang summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav.lang svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+  nav.lang .chevron { transition: transform .15s; }
+  nav.lang details[open] .chevron { transform: rotate(180deg); }
+  nav.lang ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 6px);
+    z-index: 10;
+    min-width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  }
+  nav.lang li { margin: 0; }
+  nav.lang a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.lang a:hover { background: var(--bg); color: var(--accent); }
+  nav.lang a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">Política de privacidad · Android</span>
+      <nav class="lang" aria-label="Idioma">
+        <details>
+          <summary><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Español</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="privacy-android-en.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="privacy-android-ru.html" hreflang="ru" lang="ru">Русский</a></li>
+            <li><a href="privacy-android-uk.html" hreflang="uk" lang="uk">Українська</a></li>
+            <li><a href="privacy-android-he.html" hreflang="he" lang="he">עברית</a></li>
+            <li><a href="privacy-android-ar.html" hreflang="ar" lang="ar">العربية</a></li>
+            <li><a href="privacy-android-es.html" hreflang="es" lang="es" aria-current="page">Español</a></li>
+            <li><a href="privacy-android-pt.html" hreflang="pt" lang="pt">Português</a></li>
+            <li><a href="privacy-android-fr.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="privacy-android-de.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="privacy-android-it.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="privacy-android-pl.html" hreflang="pl" lang="pl">Polski</a></li>
+            <li><a href="privacy-android-tr.html" hreflang="tr" lang="tr">Türkçe</a></li>
+            <li><a href="privacy-android-id.html" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+            <li><a href="privacy-android-hi.html" hreflang="hi" lang="hi">हिन्दी</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+    <h1>Generador</h1>
+    <p class="meta">Números aleatorios, contraseñas, boletos de lotería, citas, chistes, trivia y códigos QR · Última actualización: 9 de octubre de 2026</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Contenido">
+      <strong>Contenido</strong>
+      <ol>
+        <li><a href="#about">Sobre esta política</a></li>
+        <li><a href="#on-device">Lo que se queda en tu dispositivo</a></li>
+        <li><a href="#collect">Información recopilada</a></li>
+        <li><a href="#ads">Anuncios y seguimiento</a></li>
+        <li><a href="#purchases">Compras dentro de la app</a></li>
+        <li><a href="#third-parties">Servicios de terceros</a></li>
+        <li><a href="#sharing">Compartir y vender</a></li>
+        <li><a href="#retention">Conservación de datos</a></li>
+        <li><a href="#security">Seguridad</a></li>
+        <li><a href="#rights">Tus derechos y opciones</a></li>
+        <li><a href="#children">Privacidad de los niños</a></li>
+        <li><a href="#changes">Cambios en esta política</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>En resumen</h2>
+        <ul>
+          <li>Sin cuenta ni registro. La app nunca te pide tu nombre ni tu correo.</li>
+          <li>Todo lo que generas (números, contraseñas, boletos, códigos QR) se crea en tu dispositivo y nunca se me envía.</li>
+          <li>La versión gratuita muestra anuncios de Google. Donde la ley lo exige, tú decides si pueden ser personalizados.</li>
+          <li>Las citas, los chistes y las preguntas de trivia se cargan desde servicios gratuitos de terceros, que ven tu dirección IP como cualquier sitio web.</li>
+          <li>Las estadísticas de uso anónimas (qué pantallas y acciones se usan) me ayudan a mejorar la app.</li>
+          <li>Nunca vendo tus datos. Comprar <strong>Quitar anuncios</strong> desactiva los anuncios por completo.</li>
+        </ul>
+      </div>
+
+      <section id="about">
+        <h2>1. Sobre esta política</h2>
+        <p>Generador (la “app”) la crea y mantiene Ariel Tkachenko, un desarrollador independiente (“yo”). La app es gratuita para descargar y usar, y se financia con anuncios.</p>
+        <p>Esta política cubre <strong>Generador para Android</strong>. Para la app de iPhone y iPad, consulta la <a href="privacy-es.html">política de privacidad de iOS</a>.</p>
+        <p>Esta política explica qué información recopila la app, por qué, con quién se comparte y qué opciones tienes. Al usar la app, aceptas la recopilación y el uso de la información tal como se describe aquí.</p>
+      </section>
+
+      <section id="on-device">
+        <h2>2. Lo que se queda en tu dispositivo</h2>
+        <p>Las funciones principales funcionan por completo en tu dispositivo, y su contenido nunca se me envía a mí ni a nadie más:</p>
+        <ul>
+          <li><strong>Los números aleatorios, las contraseñas y los boletos de lotería</strong> se generan localmente. La seguridad de la contraseña también se comprueba localmente.</li>
+          <li><strong>Códigos QR.</strong> El texto, los nombres de redes Wi-Fi y las contraseñas que escribes se convierten en un código QR en tu dispositivo. Nunca se envían a ningún sitio, y la app no los guarda cuando sales de la pantalla.</li>
+          <li><strong>Contactos.</strong> Si creas un código QR a partir de un contacto, el selector de contactos de Android te deja elegir un solo contacto. En Android 17 y posteriores, la app recibe solo los datos que van en el código (nombre, teléfonos, correos, empresa, direcciones y sitios web) y la foto del contacto, que se muestra en el centro del código; en versiones anteriores, solo el nombre del contacto y el número de teléfono que elijas. La app no puede explorar tu agenda (no tiene el permiso de Contactos) y nunca sube datos de contactos.</li>
+          <li><strong>Fotos.</strong> Si añades un logotipo a un código QR, el selector de fotos de Android le da a la app solo la imagen que eliges. No se sube nada.</li>
+          <li><strong>Los ajustes</strong>, como tus rangos y opciones preferidos, se guardan en tu dispositivo. Si tu dispositivo hace copias de seguridad en tu cuenta de Google, Android puede incluirlos en esa copia y restaurarlos en un dispositivo nuevo; nunca se me envían. Un logotipo QR que decidas conservar para nuevos códigos queda fuera de las copias de seguridad y se queda solo en este dispositivo.</li>
+        </ul>
+        <p>Si compartes contenido generado, solo llega a donde decidas enviarlo, mediante la hoja para compartir estándar de Android.</p>
+      </section>
+
+      <section id="collect">
+        <h2>3. Información recopilada</h2>
+        <p>La app no recopila información que te identifique directamente, como tu nombre, correo electrónico, número de teléfono o ubicación precisa. Sí recopila la siguiente información técnica y de uso:</p>
+
+        <h3>Estadísticas de uso (Firebase Analytics)</h3>
+        <ul>
+          <li>Qué pantallas abres y acciones como “Generar”, “Compartir” o cambiar un ajuste. Se registran la pantalla y la acción, nunca lo que generaste.</li>
+          <li>El idioma de la app, la versión de la app, el modelo del dispositivo, la versión de Android y el país aproximado (deducido de tu dirección IP)</li>
+          <li>Un identificador aleatorio de la instalación de la app, y el ID de publicidad del dispositivo, que puedes eliminar o restablecer en <em>Ajustes de Android → Seguridad y privacidad → Privacidad → Anuncios</em></li>
+          <li>Si los anuncios se cargaron y los eventos de compra de Quitar anuncios (nunca datos de pago)</li>
+        </ul>
+
+        <h3>Inicio de sesión anónimo y funciones en línea (Firebase Authentication y Realtime Database)</h3>
+        <ul>
+          <li>Para estas funciones, la app inicia sesión de forma <strong>anónima</strong>. Firebase asigna un ID de usuario aleatorio que no está vinculado a tu identidad, tu correo ni tu cuenta de Google.</li>
+          <li><strong>Las estadísticas de trivia</strong> (cuántas preguntas respondiste y cuántas acertaste) se guardan con ese ID aleatorio para conservar tu puntuación.</li>
+          <li><strong>Contadores de boletos de lotería.</strong> La app suma cada boleto generado a totales compartidos (por ejemplo, cuántos boletos “de la suerte” se han generado en total). Solo se guardan los totales, no tus boletos ni nada vinculado a ti.</li>
+        </ul>
+
+        <h3>Citas, chistes y preguntas de trivia (servicios de contenido de terceros)</h3>
+        <p>Las citas, los chistes y las preguntas de trivia están disponibles en inglés y ruso. Se cargan desde servicios gratuitos de terceros, según el idioma de la app:</p>
+        <ul>
+          <li><strong>Ruso:</strong> citas y preguntas de trivia de <a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a>, chistes de <a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></li>
+          <li><strong>Inglés:</strong> citas de <a href="https://zenquotes.io" target="_blank" rel="noopener">ZenQuotes</a>, chistes de <a href="https://jokeapi.dev" target="_blank" rel="noopener">JokeAPI</a>, preguntas de trivia de <a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></li>
+        </ul>
+        <p>Cuando abres estas pantallas, la app solicita contenido al servicio. Como cualquier sitio web, el servicio recibe tu dirección IP y datos básicos de la solicitud con cada petición. En la trivia en ruso, la respuesta que eliges también se envía a randstuff.ru, que la comprueba; en inglés, las respuestas se comprueban en tu dispositivo. No se envía ninguna otra información sobre ti a estos servicios.</p>
+        <p>En los demás idiomas de la app estas pantallas están ocultas, así que no se carga nada de estos servicios.</p>
+      </section>
+
+      <section id="ads">
+        <h2>4. Anuncios y seguimiento</h2>
+        <p>La versión gratuita muestra un banner de <strong>Google AdMob</strong>. Para mostrar y medir los anuncios, Google puede recopilar tu dirección IP, información del dispositivo y de la app, interacciones con los anuncios y el ID de publicidad de tu dispositivo, si tiene uno.</p>
+        <ul>
+          <li><strong>Consentimiento (EEE, Reino Unido, Suiza y algunos estados de EE. UU.).</strong> Donde la ley lo exige, la app muestra el formulario de consentimiento de Google antes de cargar anuncios. Puedes elegir si tus datos pueden usarse para anuncios personalizados y cambiar tu elección en cualquier momento desde <strong>Ajustes de privacidad</strong> en el menú de la app.</li>
+          <li><strong>ID de publicidad.</strong> Android te permite eliminar o restablecer tu ID de publicidad en cualquier momento en <em>Ajustes de Android → Seguridad y privacidad → Privacidad → Anuncios</em> (la ruta exacta depende del dispositivo). Sin él, los anuncios no se personalizan en función de él.</li>
+          <li><strong>Quitar anuncios.</strong> Si compras Quitar anuncios, la app no carga anuncios en absoluto.</li>
+        </ul>
+        <p>Más información en <a href="https://policies.google.com/technologies/partner-sites?hl=es" target="_blank" rel="noopener">cómo usa Google la información de las apps que utilizan sus servicios</a>.</p>
+      </section>
+
+      <section id="purchases">
+        <h2>5. Compras dentro de la app</h2>
+        <p>La compra opcional Quitar anuncios la procesa por completo Google a través de Google Play. No recibo tu nombre, tu cuenta de Google ni tus datos de pago. La app solo consulta a Google Play si la compra está activa en tu cuenta, para poder restaurarla en tus otros dispositivos.</p>
+      </section>
+
+      <section id="third-parties">
+        <h2>6. Servicios de terceros</h2>
+        <p>Estos servicios procesan datos en nombre de la app, cada uno según su propia política de privacidad:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Servicio</th><th>Proveedor</th><th>Finalidad</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+                <td>Google LLC</td>
+                <td>Analítica, inicio de sesión anónimo, estadísticas de trivia y totales de boletos</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener">AdMob</a></td>
+                <td>Google LLC</td>
+                <td>Mostrar anuncios, gestión del consentimiento</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener">Google Play</a></td>
+                <td>Google LLC</td>
+                <td>Compras dentro de la app; la copia de seguridad de tu dispositivo, si está activada</td>
+              </tr>
+              <tr>
+                <td><a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a></td>
+                <td>randstuff.ru</td>
+                <td>Citas y preguntas de trivia en ruso, comprobación de respuestas de la trivia en ruso</td>
+              </tr>
+              <tr>
+                <td><a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></td>
+                <td>shortiki.com</td>
+                <td>Chistes en ruso</td>
+              </tr>
+              <tr>
+                <td><a href="https://docs.zenquotes.io/privacy-policy/" target="_blank" rel="noopener">ZenQuotes</a></td>
+                <td>ZenQuotes.io</td>
+                <td>Citas en inglés</td>
+              </tr>
+              <tr>
+                <td><a href="https://sv443.net/privacypolicy/en" target="_blank" rel="noopener">JokeAPI</a></td>
+                <td>Sv443</td>
+                <td>Chistes en inglés</td>
+              </tr>
+              <tr>
+                <td><a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></td>
+                <td>Pixeltail Games</td>
+                <td>Preguntas de trivia en inglés</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Google procesa datos en servidores de todo el mundo, incluidos los Estados Unidos, con sus garantías estándar de protección de datos.</p>
+      </section>
+
+      <section id="sharing">
+        <h2>7. Compartir y vender datos</h2>
+        <p><strong>No</strong> vendo, alquilo ni comercio con tu información. Solo se comparte:</p>
+        <ul>
+          <li>Con los proveedores de servicios indicados arriba, para que la app funcione y muestre anuncios (según tus opciones de anuncios)</li>
+          <li>Cuando lo exija la ley, o para proteger los derechos y la seguridad de los usuarios u otras personas</li>
+        </ul>
+      </section>
+
+      <section id="retention">
+        <h2>8. Conservación de datos</h2>
+        <ul>
+          <li>Los datos de <strong>analítica</strong> se eliminan automáticamente tras el periodo de conservación configurado en Firebase (como máximo 14 meses).</li>
+          <li><strong>Las estadísticas de trivia</strong> se conservan hasta que las reinicias en la app, lo que las pone a cero.</li>
+          <li><strong>Los totales de boletos</strong> no son datos personales y se conservan indefinidamente.</li>
+          <li><strong>Los datos publicitarios</strong> los conserva Google según su política de privacidad.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2>9. Seguridad</h2>
+        <p>Los datos enviados a Firebase y Google se cifran en tránsito (HTTPS), y el acceso al proyecto de Firebase está restringido. Sin embargo, ningún método de transmisión por internet ni de almacenamiento electrónico es 100 % seguro, así que no puedo garantizar una seguridad absoluta.</p>
+      </section>
+
+      <section id="rights">
+        <h2>10. Tus derechos y opciones</h2>
+        <p>Tú controlas lo que se recopila:</p>
+        <ul>
+          <li><strong>Anuncios personalizados:</strong> cambia tu elección desde <em>Ajustes de privacidad</em> en el menú de la app (si está disponible en tu región).</li>
+          <li><strong>ID de publicidad:</strong> elimínalo o restablécelo en <em>Ajustes de Android → Seguridad y privacidad → Privacidad → Anuncios</em>.</li>
+          <li><strong>Todos los anuncios:</strong> compra Quitar anuncios.</li>
+          <li><strong>Estadísticas de trivia:</strong> reinícialas en la pantalla de trivia.</li>
+          <li><strong>Todo:</strong> desinstalar la app detiene toda la recopilación y descarta sus identificadores aleatorios.</li>
+        </ul>
+        <p>Según dónde vivas (por ejemplo, bajo el RGPD en la UE y el Reino Unido o la CCPA en California), también tienes derecho a acceder a tus datos personales, corregirlos o eliminarlos, a oponerte a su tratamiento o limitarlo, y a presentar una reclamación ante tu autoridad local de protección de datos.</p>
+        <p>Como la app no tiene cuentas y solo usa identificadores aleatorios, normalmente no puedo asociar los datos guardados a una persona concreta. Si quieres hacer una solicitud, escríbeme y haré lo posible por ayudarte en un plazo de 30 días.</p>
+        <p><strong>Base jurídica (EEE y Reino Unido):</strong> las estadísticas de uso y las funciones en línea se tratan sobre la base de mi interés legítimo en hacer funcionar y mejorar la app. Los anuncios personalizados solo se muestran con tu consentimiento.</p>
+      </section>
+
+      <section id="children">
+        <h2>11. Privacidad de los niños</h2>
+        <p>La app no está dirigida a menores de 13 años, y no recopilo a sabiendas información personal de ellos. Si eres madre, padre o tutor y crees que tu hijo ha proporcionado información personal, contáctame y la eliminaré.</p>
+      </section>
+
+      <section id="changes">
+        <h2>12. Cambios en esta política</h2>
+        <p>Puedo actualizar esta política de vez en cuando, por ejemplo cuando la app gane nuevas funciones. Los cambios se publican en esta página con una nueva fecha de “Última actualización” y entran en vigor en cuanto se publican.</p>
+        <p>Si las versiones difieren, prevalece la <a href="privacy-android-en.html" hreflang="en">versión en inglés</a>.</p>
+      </section>
+
+      <section id="contact">
+        <h2>13. Contacto</h2>
+        <p>¿Preguntas, solicitudes o sugerencias sobre esta política de privacidad? Escríbeme:</p>
+        <div class="contact-card">
+          <span>Ariel Tkachenko · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=Generador%3A%20pregunta%20sobre%20privacidad">Escríbeme</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Ariel Tkachenko · Generador para Android</footer>
+</div>
+</body>
+</html>

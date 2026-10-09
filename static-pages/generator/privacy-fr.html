@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Générateur — Politique de confidentialité</title>
+<meta name="description" content="Politique de confidentialité de Générateur, l’app gratuite de nombres aléatoires, mots de passe, tickets de loterie, citations, blagues, quiz et codes QR d’Ariel Tkachenko.">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="en" href="privacy-en.html">
+<link rel="alternate" hreflang="ru" href="privacy-ru.html">
+<link rel="alternate" hreflang="uk" href="privacy-uk.html">
+<link rel="alternate" hreflang="he" href="privacy-he.html">
+<link rel="alternate" hreflang="ar" href="privacy-ar.html">
+<link rel="alternate" hreflang="es" href="privacy-es.html">
+<link rel="alternate" hreflang="pt" href="privacy-pt.html">
+<link rel="alternate" hreflang="fr" href="privacy-fr.html">
+<link rel="alternate" hreflang="de" href="privacy-de.html">
+<link rel="alternate" hreflang="it" href="privacy-it.html">
+<link rel="alternate" hreflang="pl" href="privacy-pl.html">
+<link rel="alternate" hreflang="tr" href="privacy-tr.html">
+<link rel="alternate" hreflang="id" href="privacy-id.html">
+<link rel="alternate" hreflang="hi" href="privacy-hi.html">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #c0262d;
+    --accent-soft: #fbeaea;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #ff6961;
+      --accent-soft: #3a1f22;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { position: relative; font-size: 14px; }
+  nav.lang summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  nav.lang summary::-webkit-details-marker { display: none; }
+  nav.lang summary:hover { border-color: var(--muted); }
+  nav.lang summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav.lang svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+  nav.lang .chevron { transition: transform .15s; }
+  nav.lang details[open] .chevron { transform: rotate(180deg); }
+  nav.lang ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 6px);
+    z-index: 10;
+    min-width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  }
+  nav.lang li { margin: 0; }
+  nav.lang a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.lang a:hover { background: var(--bg); color: var(--accent); }
+  nav.lang a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">Politique de confidentialité</span>
+      <nav class="lang" aria-label="Langue">
+        <details>
+          <summary><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Français</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="privacy-en.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="privacy-ru.html" hreflang="ru" lang="ru">Русский</a></li>
+            <li><a href="privacy-uk.html" hreflang="uk" lang="uk">Українська</a></li>
+            <li><a href="privacy-he.html" hreflang="he" lang="he">עברית</a></li>
+            <li><a href="privacy-ar.html" hreflang="ar" lang="ar">العربية</a></li>
+            <li><a href="privacy-es.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="privacy-pt.html" hreflang="pt" lang="pt">Português</a></li>
+            <li><a href="privacy-fr.html" hreflang="fr" lang="fr" aria-current="page">Français</a></li>
+            <li><a href="privacy-de.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="privacy-it.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="privacy-pl.html" hreflang="pl" lang="pl">Polski</a></li>
+            <li><a href="privacy-tr.html" hreflang="tr" lang="tr">Türkçe</a></li>
+            <li><a href="privacy-id.html" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+            <li><a href="privacy-hi.html" hreflang="hi" lang="hi">हिन्दी</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+    <h1>Générateur</h1>
+    <p class="meta">Nombres aléatoires, mots de passe, tickets de loterie, citations, blagues, quiz et codes QR · Dernière mise à jour : 9 octobre 2026</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Sommaire">
+      <strong>Sommaire</strong>
+      <ol>
+        <li><a href="#about">À propos de cette politique</a></li>
+        <li><a href="#on-device">Ce qui reste sur votre appareil</a></li>
+        <li><a href="#collect">Informations collectées</a></li>
+        <li><a href="#ads">Publicité et suivi</a></li>
+        <li><a href="#purchases">Achats intégrés</a></li>
+        <li><a href="#third-parties">Services tiers</a></li>
+        <li><a href="#sharing">Partage et vente</a></li>
+        <li><a href="#retention">Conservation des données</a></li>
+        <li><a href="#security">Sécurité</a></li>
+        <li><a href="#rights">Vos droits et choix</a></li>
+        <li><a href="#children">Confidentialité des enfants</a></li>
+        <li><a href="#changes">Modifications de cette politique</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>En bref</h2>
+        <ul>
+          <li>Pas de compte, pas d’inscription. L’app ne demande jamais votre nom ni votre e-mail.</li>
+          <li>Tout ce que vous générez (nombres, mots de passe, tickets, codes QR) est créé sur votre appareil et ne m’est jamais envoyé.</li>
+          <li>La version gratuite affiche des pubs Google. Vous choisissez si elles peuvent être personnalisées et si l’app peut vous suivre.</li>
+          <li>Les citations, blagues et questions de quiz sont chargées depuis des services tiers gratuits, qui voient votre adresse IP comme n’importe quel site web.</li>
+          <li>Des statistiques d’utilisation anonymes (quels écrans et quelles actions sont utilisés) m’aident à améliorer l’app.</li>
+          <li>Je ne vends jamais vos données. Acheter <strong>Supprimer les pubs</strong> désactive complètement la publicité.</li>
+        </ul>
+      </div>
+
+      <section id="about">
+        <h2>1. À propos de cette politique</h2>
+        <p>Générateur (l’« app ») est conçu et maintenu par Ariel Tkachenko, développeur indépendant (« je »). L’app est gratuite à télécharger et à utiliser, et elle est financée par la publicité.</p>
+        <p>Cette politique explique quelles informations l’app collecte, pourquoi, avec qui elles sont partagées et quels choix vous avez. En utilisant l’app, vous acceptez la collecte et l’utilisation des informations décrites ici.</p>
+      </section>
+
+      <section id="on-device">
+        <h2>2. Ce qui reste sur votre appareil</h2>
+        <p>Les fonctions principales fonctionnent entièrement sur votre appareil, et leur contenu n’est jamais envoyé ni à moi ni à personne d’autre :</p>
+        <ul>
+          <li><strong>Les nombres aléatoires, mots de passe et tickets de loterie</strong> sont générés localement. La robustesse du mot de passe est aussi vérifiée localement.</li>
+          <li><strong>Codes QR.</strong> Le texte, les noms et mots de passe de réseaux Wi-Fi que vous saisissez sont transformés en code QR sur votre appareil. Ils ne sont envoyés nulle part, et l’app ne les garde pas une fois l’écran quitté.</li>
+          <li><strong>Contacts.</strong> Si vous créez un code QR à partir d’un contact, iOS vous laisse choisir un seul contact, et seules ses coordonnées vont dans le code. L’app ne peut pas parcourir votre carnet d’adresses et n’envoie jamais de coordonnées.</li>
+          <li><strong>Photos.</strong> Si vous ajoutez un logo à un code QR, seule l’image choisie est utilisée. Enregistrer une image générée l’ajoute à votre photothèque. Rien n’est envoyé.</li>
+          <li><strong>Les réglages</strong>, comme vos plages et options préférées, sont stockés sur votre appareil. Si vous êtes connecté à iCloud, Apple les synchronise avec vos autres appareils via votre compte iCloud ; ils ne me sont jamais envoyés. Un logo QR que vous gardez pour les nouveaux codes reste uniquement sur cet appareil.</li>
+        </ul>
+        <p>Si vous partagez un contenu généré, il va uniquement là où vous choisissez de l’envoyer, via la feuille de partage standard d’iOS.</p>
+      </section>
+
+      <section id="collect">
+        <h2>3. Informations collectées</h2>
+        <p>L’app ne collecte pas d’informations qui vous identifient directement, comme votre nom, votre adresse e-mail, votre numéro de téléphone ou votre position précise. Elle collecte les informations techniques et d’utilisation suivantes :</p>
+
+        <h3>Statistiques d’utilisation (Firebase Analytics)</h3>
+        <ul>
+          <li>Les écrans que vous ouvrez et des actions comme « Générer », « Partager » ou la modification d’un réglage. L’écran et l’action sont enregistrés, jamais ce que vous avez généré.</li>
+          <li>La langue de l’app, la version de l’app, le modèle d’appareil, la version d’iOS et le pays approximatif (déduit de votre adresse IP)</li>
+          <li>Un identifiant aléatoire d’installation de l’app, et l’identifiant publicitaire de l’appareil seulement si vous autorisez le suivi</li>
+          <li>Le chargement des pubs et les événements d’achat de Supprimer les pubs (jamais de données de paiement)</li>
+        </ul>
+
+        <h3>Connexion anonyme et fonctions en ligne (Firebase Authentication et Realtime Database)</h3>
+        <ul>
+          <li>Pour ces fonctions, l’app se connecte de façon <strong>anonyme</strong>. Firebase attribue un identifiant utilisateur aléatoire qui n’est lié ni à votre identité, ni à votre e-mail, ni à votre identifiant Apple.</li>
+          <li><strong>Les statistiques du quiz</strong> (le nombre de questions répondues et de bonnes réponses) sont enregistrées sous cet identifiant aléatoire pour conserver votre score.</li>
+          <li><strong>Compteurs de tickets de loterie.</strong> L’app ajoute chaque ticket généré à des totaux partagés (par exemple, combien de tickets « porte-bonheur » ont été générés en tout). Seuls les totaux sont stockés, pas vos tickets ni rien qui vous soit lié.</li>
+        </ul>
+
+        <h3>Citations, blagues et questions de quiz (services de contenu tiers)</h3>
+        <p>Les citations, blagues et questions de quiz sont disponibles en anglais et en russe. Elles sont chargées depuis des services tiers gratuits, selon la langue de l’app :</p>
+        <ul>
+          <li><strong>Russe :</strong> citations et questions de quiz de <a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a>, blagues de <a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></li>
+          <li><strong>Anglais :</strong> citations de <a href="https://zenquotes.io" target="_blank" rel="noopener">ZenQuotes</a>, blagues de <a href="https://jokeapi.dev" target="_blank" rel="noopener">JokeAPI</a>, questions de quiz d’<a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></li>
+        </ul>
+        <p>Quand vous ouvrez ces écrans, l’app demande du contenu au service. Comme n’importe quel site web, le service reçoit votre adresse IP et des informations de base sur la requête à chaque demande. Dans le quiz en russe, la réponse choisie est aussi envoyée à randstuff.ru, qui la vérifie ; en anglais, les réponses sont vérifiées sur votre appareil. Aucune autre information vous concernant n’est envoyée à ces services.</p>
+        <p>Dans les autres langues de l’app, ces écrans sont masqués : rien n’est donc chargé depuis ces services.</p>
+      </section>
+
+      <section id="ads">
+        <h2>4. Publicité et suivi</h2>
+        <p>La version gratuite affiche une bannière <strong>Google AdMob</strong>. Pour afficher et mesurer les pubs, Google peut collecter votre adresse IP, des informations sur l’appareil et l’app, les interactions avec les pubs et, si vous l’autorisez, l’identifiant publicitaire de votre appareil (IDFA).</p>
+        <ul>
+          <li><strong>Consentement (EEE, Royaume-Uni, Suisse et certains États américains).</strong> Là où la loi l’exige, l’app affiche le formulaire de consentement de Google avant tout chargement de pub. Vous choisissez si vos données peuvent servir à des pubs personnalisées, et vous pouvez changer ce choix à tout moment depuis <strong>Réglages de confidentialité</strong> dans le menu de l’app.</li>
+          <li><strong>Transparence du suivi des apps (App Tracking Transparency).</strong> iOS vous demande si l’app peut vous suivre dans les apps et sites web d’autres sociétés. Si vous choisissez « Demander à l’app de ne pas suivre », l’identifiant publicitaire n’est pas partagé et vous verrez des pubs non personnalisées. Vous pouvez changer cela à tout moment dans <em>Réglages iOS → Confidentialité et sécurité → Suivi</em>.</li>
+          <li><strong>Supprimer les pubs.</strong> Si vous achetez Supprimer les pubs, l’app ne charge plus aucune pub et n’affiche plus du tout la demande de suivi.</li>
+        </ul>
+        <p>En savoir plus sur <a href="https://policies.google.com/technologies/partner-sites?hl=fr" target="_blank" rel="noopener">la façon dont Google utilise les informations des apps qui utilisent ses services</a>.</p>
+      </section>
+
+      <section id="purchases">
+        <h2>5. Achats intégrés</h2>
+        <p>L’achat facultatif Supprimer les pubs est entièrement traité par Apple via l’App Store. Je ne reçois ni votre nom, ni votre identifiant Apple, ni vos données de paiement. L’app vérifie seulement auprès d’Apple si l’achat est actif sur votre compte, pour pouvoir le restaurer sur vos autres appareils.</p>
+      </section>
+
+      <section id="third-parties">
+        <h2>6. Services tiers</h2>
+        <p>Ces services traitent des données pour le compte de l’app, chacun selon sa propre politique de confidentialité :</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Service</th><th>Fournisseur</th><th>Finalité</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+                <td>Google LLC</td>
+                <td>Statistiques, connexion anonyme, statistiques du quiz et totaux des tickets</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noopener">AdMob</a></td>
+                <td>Google LLC</td>
+                <td>Affichage des pubs, gestion du consentement</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">App Store</a></td>
+                <td>Apple Inc.</td>
+                <td>Achats intégrés ; synchronisation de vos réglages via iCloud</td>
+              </tr>
+              <tr>
+                <td><a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a></td>
+                <td>randstuff.ru</td>
+                <td>Citations et questions de quiz en russe, vérification des réponses du quiz en russe</td>
+              </tr>
+              <tr>
+                <td><a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></td>
+                <td>shortiki.com</td>
+                <td>Blagues en russe</td>
+              </tr>
+              <tr>
+                <td><a href="https://docs.zenquotes.io/privacy-policy/" target="_blank" rel="noopener">ZenQuotes</a></td>
+                <td>ZenQuotes.io</td>
+                <td>Citations en anglais</td>
+              </tr>
+              <tr>
+                <td><a href="https://sv443.net/privacypolicy/en" target="_blank" rel="noopener">JokeAPI</a></td>
+                <td>Sv443</td>
+                <td>Blagues en anglais</td>
+              </tr>
+              <tr>
+                <td><a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></td>
+                <td>Pixeltail Games</td>
+                <td>Questions de quiz en anglais</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Google traite les données sur des serveurs dans le monde entier, y compris aux États-Unis, avec ses garanties standard de protection des données.</p>
+      </section>
+
+      <section id="sharing">
+        <h2>7. Partage et vente des données</h2>
+        <p>Je ne vends, ne loue ni n’échange <strong>jamais</strong> vos informations. Elles ne sont partagées que :</p>
+        <ul>
+          <li>Avec les prestataires listés ci-dessus, pour faire fonctionner l’app et afficher des pubs (selon vos choix publicitaires)</li>
+          <li>Lorsque la loi l’exige, ou pour protéger les droits et la sécurité des utilisateurs ou d’autres personnes</li>
+        </ul>
+      </section>
+
+      <section id="retention">
+        <h2>8. Conservation des données</h2>
+        <ul>
+          <li>Les données de <strong>statistiques</strong> sont supprimées automatiquement après la durée de conservation définie dans Firebase (14 mois au plus).</li>
+          <li><strong>Les statistiques du quiz</strong> sont conservées jusqu’à ce que vous les réinitialisiez dans l’app, ce qui les remet à zéro.</li>
+          <li><strong>Les totaux des tickets</strong> ne sont pas des données personnelles et sont conservés indéfiniment.</li>
+          <li><strong>Les données publicitaires</strong> sont conservées par Google comme décrit dans sa politique de confidentialité.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2>9. Sécurité</h2>
+        <p>Les données envoyées à Firebase et Google sont chiffrées en transit (HTTPS), et l’accès au projet Firebase est restreint. Cependant, aucune méthode de transmission sur internet ni de stockage électronique n’est sûre à 100 % : je ne peux donc pas garantir une sécurité absolue.</p>
+      </section>
+
+      <section id="rights">
+        <h2>10. Vos droits et choix</h2>
+        <p>Vous gardez le contrôle sur ce qui est collecté :</p>
+        <ul>
+          <li><strong>Pubs personnalisées :</strong> changez votre choix depuis <em>Réglages de confidentialité</em> dans le menu de l’app (si disponible dans votre région).</li>
+          <li><strong>Suivi :</strong> désactivez-le dans <em>Réglages iOS → Confidentialité et sécurité → Suivi</em>.</li>
+          <li><strong>Toute la publicité :</strong> achetez Supprimer les pubs.</li>
+          <li><strong>Statistiques du quiz :</strong> réinitialisez-les depuis l’écran du quiz.</li>
+          <li><strong>Tout :</strong> désinstaller l’app arrête toute collecte et supprime ses identifiants aléatoires.</li>
+        </ul>
+        <p>Selon votre lieu de résidence (par exemple, au titre du RGPD dans l’UE et au Royaume-Uni ou du CCPA en Californie), vous avez aussi le droit d’accéder à vos données personnelles, de les rectifier ou de les supprimer, de vous opposer à leur traitement ou de le limiter, et de déposer une plainte auprès de votre autorité locale de protection des données.</p>
+        <p>Comme l’app n’a pas de comptes et n’utilise que des identifiants aléatoires, je ne peux généralement pas rattacher les données stockées à une personne précise. Pour toute demande, écrivez-moi et je ferai de mon mieux pour vous aider sous 30 jours.</p>
+        <p><strong>Base légale (EEE et Royaume-Uni) :</strong> les statistiques d’utilisation et les fonctions en ligne sont traitées sur la base de mon intérêt légitime à faire fonctionner et à améliorer l’app. Les pubs personnalisées ne sont affichées qu’avec votre consentement.</p>
+      </section>
+
+      <section id="children">
+        <h2>11. Confidentialité des enfants</h2>
+        <p>L’app ne s’adresse pas aux enfants de moins de 13 ans, et je ne collecte pas sciemment leurs informations personnelles. Si vous êtes parent ou tuteur et pensez que votre enfant a fourni des informations personnelles, contactez-moi et je les supprimerai.</p>
+      </section>
+
+      <section id="changes">
+        <h2>12. Modifications de cette politique</h2>
+        <p>Je peux mettre à jour cette politique de temps en temps, par exemple lorsque l’app gagne de nouvelles fonctions. Les modifications sont publiées sur cette page avec une nouvelle date de « Dernière mise à jour » et prennent effet dès leur publication.</p>
+        <p>En cas de divergence entre les versions, la <a href="privacy-en.html" hreflang="en">version anglaise</a> prévaut.</p>
+      </section>
+
+      <section id="contact">
+        <h2>13. Contact</h2>
+        <p>Des questions, demandes ou suggestions sur cette politique de confidentialité ? Écrivez-moi :</p>
+        <div class="contact-card">
+          <span>Ariel Tkachenko · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=G%C3%A9n%C3%A9rateur%E2%80%AF%3A%20question%20de%20confidentialit%C3%A9">M’écrire</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Ariel Tkachenko · Générateur pour iOS</footer>
+</div>
+</body>
+</html>

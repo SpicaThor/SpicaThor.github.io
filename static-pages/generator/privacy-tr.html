@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Üretici — Gizlilik Politikası</title>
+<meta name="description" content="Ariel Tkachenko'nun rastgele sayı, parola, piyango bileti, söz, şaka, bilgi yarışması ve QR kodu uygulaması Üretici'nin gizlilik politikası.">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="en" href="privacy-en.html">
+<link rel="alternate" hreflang="ru" href="privacy-ru.html">
+<link rel="alternate" hreflang="uk" href="privacy-uk.html">
+<link rel="alternate" hreflang="he" href="privacy-he.html">
+<link rel="alternate" hreflang="ar" href="privacy-ar.html">
+<link rel="alternate" hreflang="es" href="privacy-es.html">
+<link rel="alternate" hreflang="pt" href="privacy-pt.html">
+<link rel="alternate" hreflang="fr" href="privacy-fr.html">
+<link rel="alternate" hreflang="de" href="privacy-de.html">
+<link rel="alternate" hreflang="it" href="privacy-it.html">
+<link rel="alternate" hreflang="pl" href="privacy-pl.html">
+<link rel="alternate" hreflang="tr" href="privacy-tr.html">
+<link rel="alternate" hreflang="id" href="privacy-id.html">
+<link rel="alternate" hreflang="hi" href="privacy-hi.html">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #c0262d;
+    --accent-soft: #fbeaea;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #ff6961;
+      --accent-soft: #3a1f22;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { position: relative; font-size: 14px; }
+  nav.lang summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  nav.lang summary::-webkit-details-marker { display: none; }
+  nav.lang summary:hover { border-color: var(--muted); }
+  nav.lang summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav.lang svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+  nav.lang .chevron { transition: transform .15s; }
+  nav.lang details[open] .chevron { transform: rotate(180deg); }
+  nav.lang ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 6px);
+    z-index: 10;
+    min-width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  }
+  nav.lang li { margin: 0; }
+  nav.lang a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.lang a:hover { background: var(--bg); color: var(--accent); }
+  nav.lang a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">Gizlilik Politikası</span>
+      <nav class="lang" aria-label="Dil">
+        <details>
+          <summary><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Türkçe</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="privacy-en.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="privacy-ru.html" hreflang="ru" lang="ru">Русский</a></li>
+            <li><a href="privacy-uk.html" hreflang="uk" lang="uk">Українська</a></li>
+            <li><a href="privacy-he.html" hreflang="he" lang="he">עברית</a></li>
+            <li><a href="privacy-ar.html" hreflang="ar" lang="ar">العربية</a></li>
+            <li><a href="privacy-es.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="privacy-pt.html" hreflang="pt" lang="pt">Português</a></li>
+            <li><a href="privacy-fr.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="privacy-de.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="privacy-it.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="privacy-pl.html" hreflang="pl" lang="pl">Polski</a></li>
+            <li><a href="privacy-tr.html" hreflang="tr" lang="tr" aria-current="page">Türkçe</a></li>
+            <li><a href="privacy-id.html" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+            <li><a href="privacy-hi.html" hreflang="hi" lang="hi">हिन्दी</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+    <h1>Üretici</h1>
+    <p class="meta">Rastgele sayılar, parolalar, piyango biletleri, sözler, şakalar, bilgi yarışması ve QR kodları · Son güncelleme: 9 Ekim 2026</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="İçindekiler">
+      <strong>İçindekiler</strong>
+      <ol>
+        <li><a href="#about">Bu politika hakkında</a></li>
+        <li><a href="#on-device">Cihazınızda kalanlar</a></li>
+        <li><a href="#collect">Toplanan bilgiler</a></li>
+        <li><a href="#ads">Reklamlar ve izleme</a></li>
+        <li><a href="#purchases">Uygulama içi satın almalar</a></li>
+        <li><a href="#third-parties">Üçüncü taraf hizmetler</a></li>
+        <li><a href="#sharing">Paylaşım ve satış</a></li>
+        <li><a href="#retention">Verilerin saklanması</a></li>
+        <li><a href="#security">Güvenlik</a></li>
+        <li><a href="#rights">Haklarınız ve seçimleriniz</a></li>
+        <li><a href="#children">Çocukların gizliliği</a></li>
+        <li><a href="#changes">Bu politikadaki değişiklikler</a></li>
+        <li><a href="#contact">İletişim</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>Kısaca</h2>
+        <ul>
+          <li>Hesap yok, kayıt yok. Uygulama adınızı veya e-postanızı asla sormaz.</li>
+          <li>Ürettiğiniz her şey (sayılar, parolalar, biletler, QR kodları) cihazınızda oluşturulur ve bana asla gönderilmez.</li>
+          <li>Ücretsiz sürüm Google reklamları gösterir. Reklamların kişiselleştirilip kişiselleştirilmeyeceğine ve uygulamanın sizi izleyip izleyemeyeceğine siz karar verirsiniz.</li>
+          <li>Sözler, şakalar ve bilgi yarışması soruları ücretsiz üçüncü taraf hizmetlerden yüklenir; bu hizmetler, her web sitesi gibi IP adresinizi görür.</li>
+          <li>Anonim kullanım istatistikleri (hangi ekranların ve işlemlerin kullanıldığı) uygulamayı geliştirmeme yardımcı olur.</li>
+          <li>Verilerinizi asla satmam. <strong>Reklamları Kaldır</strong> satın almak reklamları tamamen kapatır.</li>
+        </ul>
+      </div>
+
+      <section id="about">
+        <h2>1. Bu politika hakkında</h2>
+        <p>Üretici (“uygulama”), bağımsız bir geliştirici olan Ariel Tkachenko (“ben”) tarafından geliştirilir ve sürdürülür. Uygulamayı indirmek ve kullanmak ücretsizdir; uygulama reklamlarla desteklenir.</p>
+        <p>Bu politika, uygulamanın hangi bilgileri neden topladığını, kimlerle paylaştığını ve hangi seçeneklere sahip olduğunuzu açıklar. Uygulamayı kullanarak, bilgilerin burada açıklandığı şekilde toplanmasını ve kullanılmasını kabul etmiş olursunuz.</p>
+      </section>
+
+      <section id="on-device">
+        <h2>2. Cihazınızda kalanlar</h2>
+        <p>Ana özellikler tamamen cihazınızda çalışır ve içerikleri bana ya da başka birine asla gönderilmez:</p>
+        <ul>
+          <li><strong>Rastgele sayılar, parolalar ve piyango biletleri</strong> cihazda üretilir. Parola gücü de cihazda kontrol edilir.</li>
+          <li><strong>QR kodları.</strong> Girdiğiniz metinler, Wi-Fi ağ adları ve parolaları cihazınızda QR koduna dönüştürülür. Hiçbir yere gönderilmez ve ekrandan ayrıldıktan sonra uygulama bunları saklamaz.</li>
+          <li><strong>Kişiler.</strong> Bir kişiden QR kodu oluşturursanız iOS tek bir kişi seçmenize izin verir ve koda yalnızca o kişinin bilgileri girer. Uygulama adres defterinize göz atamaz ve kişi bilgilerini asla yüklemez.</li>
+          <li><strong>Fotoğraflar.</strong> Bir QR koduna logo eklerseniz yalnızca seçtiğiniz görsel kullanılır. Oluşturulan bir görseli kaydetmek onu fotoğraf arşivinize ekler. Hiçbir şey yüklenmez.</li>
+          <li><strong>Ayarlar</strong>, örneğin tercih ettiğiniz aralıklar ve seçenekler, cihazınızda saklanır. iCloud'a giriş yaptıysanız Apple bunları iCloud hesabınız üzerinden diğer cihazlarınızla eşzamanlar; bana asla gönderilmezler. Yeni kodlar için saklamayı seçtiğiniz QR logosu yalnızca bu cihazda kalır.</li>
+        </ul>
+        <p>Oluşturulan içeriği paylaşırsanız, iOS'un standart paylaşım sayfası aracılığıyla yalnızca göndermeyi seçtiğiniz yere gider.</p>
+      </section>
+
+      <section id="collect">
+        <h2>3. Toplanan bilgiler</h2>
+        <p>Uygulama, adınız, e-posta adresiniz, telefon numaranız veya kesin konumunuz gibi sizi doğrudan tanımlayan bilgileri toplamaz. Aşağıdaki teknik ve kullanım bilgilerini toplar:</p>
+
+        <h3>Kullanım istatistikleri (Firebase Analytics)</h3>
+        <ul>
+          <li>Hangi ekranları açtığınız ve “Üret”, “Paylaş” ya da bir ayarı değiştirme gibi işlemler. Ekran ve işlem kaydedilir, ürettiğiniz şey asla kaydedilmez.</li>
+          <li>Uygulama dili, uygulama sürümü, cihaz modeli, iOS sürümü ve yaklaşık ülke (IP adresinizden çıkarılır)</li>
+          <li>Rastgele bir uygulama kurulum kimliği ve yalnızca izlemeye izin verirseniz cihazın reklam kimliği</li>
+          <li>Reklamların yüklenip yüklenmediği ve Reklamları Kaldır satın alma olayları (asla ödeme bilgileri değil)</li>
+        </ul>
+
+        <h3>Anonim oturum açma ve çevrimiçi özellikler (Firebase Authentication ve Realtime Database)</h3>
+        <ul>
+          <li>Bu özellikler için uygulama <strong>anonim</strong> olarak oturum açar. Firebase; kimliğinize, e-postanıza veya Apple Kimliğinize bağlı olmayan rastgele bir kullanıcı kimliği atar.</li>
+          <li><strong>Bilgi yarışması istatistikleri</strong> (kaç soruyu yanıtladığınız ve kaçının doğru olduğu), skorunuz korunsun diye bu rastgele kimlik altında saklanır.</li>
+          <li><strong>Piyango bileti sayaçları.</strong> Uygulama, üretilen her bileti ortak toplamlara ekler (örneğin toplamda kaç “şanslı” bilet üretildiği). Yalnızca toplamlar saklanır; biletleriniz ya da sizinle bağlantılı hiçbir şey saklanmaz.</li>
+        </ul>
+
+        <h3>Sözler, şakalar ve bilgi yarışması soruları (üçüncü taraf içerik hizmetleri)</h3>
+        <p>Sözler, şakalar ve bilgi yarışması soruları İngilizce ve Rusça olarak sunulur. Uygulamanın diline göre ücretsiz üçüncü taraf hizmetlerden yüklenirler:</p>
+        <ul>
+          <li><strong>Rusça:</strong> sözler ve bilgi yarışması soruları <a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a>'dan, şakalar <a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a>'dan</li>
+          <li><strong>İngilizce:</strong> sözler <a href="https://zenquotes.io" target="_blank" rel="noopener">ZenQuotes</a>'tan, şakalar <a href="https://jokeapi.dev" target="_blank" rel="noopener">JokeAPI</a>'den, bilgi yarışması soruları <a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a>'den</li>
+        </ul>
+        <p>Bu ekranları açtığınızda uygulama hizmetten içerik ister. Her web sitesi gibi hizmet de her istekte IP adresinizi ve isteğe ait temel bilgileri alır. Rusça bilgi yarışmasında seçtiğiniz yanıt, onu kontrol eden randstuff.ru'ya da gönderilir; İngilizcede yanıtlar cihazınızda kontrol edilir. Sizinle ilgili başka hiçbir bilgi bu hizmetlere gönderilmez.</p>
+        <p>Uygulamanın diğer dillerinde bu ekranlar gizlidir; bu yüzden bu hizmetlerden hiçbir şey yüklenmez.</p>
+      </section>
+
+      <section id="ads">
+        <h2>4. Reklamlar ve izleme</h2>
+        <p>Ücretsiz sürüm <strong>Google AdMob</strong> banner reklamı gösterir. Reklamları göstermek ve ölçmek için Google; IP adresinizi, cihaz ve uygulama bilgilerini, reklam etkileşimlerini ve izin verirseniz cihazınızın reklam kimliğini (IDFA) toplayabilir.</p>
+        <ul>
+          <li><strong>Onay (AEA, Birleşik Krallık, İsviçre ve bazı ABD eyaletleri).</strong> Yasanın gerektirdiği yerlerde uygulama, reklamlar yüklenmeden önce Google'ın onay formunu gösterir. Verilerinizin kişiselleştirilmiş reklamlar için kullanılıp kullanılamayacağını seçebilir, seçiminizi uygulama menüsündeki <strong>Gizlilik Ayarları</strong> bölümünden istediğiniz zaman değiştirebilirsiniz.</li>
+          <li><strong>Uygulama İzleme Şeffaflığı (App Tracking Transparency).</strong> iOS, uygulamanın sizi başka şirketlere ait uygulama ve web sitelerinde izleyip izleyemeyeceğini sorar. “Uygulamadan İzlememesini İste”yi seçerseniz reklam kimliği paylaşılmaz ve kişiselleştirilmemiş reklamlar görürsünüz. Bunu istediğiniz zaman <em>iOS Ayarları → Gizlilik ve Güvenlik → İzleme</em> bölümünden değiştirebilirsiniz.</li>
+          <li><strong>Reklamları Kaldır.</strong> Reklamları Kaldır'ı satın alırsanız uygulama reklam yüklemez ve izleme isteğini hiç göstermez.</li>
+        </ul>
+        <p>Daha fazla bilgi: <a href="https://policies.google.com/technologies/partner-sites?hl=tr" target="_blank" rel="noopener">Google, hizmetlerini kullanan uygulamalardan gelen bilgileri nasıl kullanır</a>.</p>
+      </section>
+
+      <section id="purchases">
+        <h2>5. Uygulama içi satın almalar</h2>
+        <p>İsteğe bağlı Reklamları Kaldır satın alımı tamamen Apple tarafından App Store üzerinden işlenir. Adınızı, Apple Kimliğinizi veya ödeme bilgilerinizi almam. Uygulama yalnızca satın alımın hesabınızda etkin olup olmadığını Apple'a sorar; böylece diğer cihazlarınızda geri yüklenebilir.</p>
+      </section>
+
+      <section id="third-parties">
+        <h2>6. Üçüncü taraf hizmetler</h2>
+        <p>Bu hizmetler, her biri kendi gizlilik politikasına göre, uygulama adına veri işler:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Hizmet</th><th>Sağlayıcı</th><th>Amaç</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+                <td>Google LLC</td>
+                <td>Analiz, anonim oturum açma, bilgi yarışması istatistikleri ve bilet toplamları</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=tr" target="_blank" rel="noopener">AdMob</a></td>
+                <td>Google LLC</td>
+                <td>Reklam gösterimi, onay yönetimi</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.apple.com/tr/legal/privacy/" target="_blank" rel="noopener">App Store</a></td>
+                <td>Apple Inc.</td>
+                <td>Uygulama içi satın almalar; ayarlarınızın iCloud üzerinden eşzamanlanması</td>
+              </tr>
+              <tr>
+                <td><a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a></td>
+                <td>randstuff.ru</td>
+                <td>Rusça sözler ve bilgi yarışması soruları, Rusça yarışma yanıtlarının kontrolü</td>
+              </tr>
+              <tr>
+                <td><a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></td>
+                <td>shortiki.com</td>
+                <td>Rusça şakalar</td>
+              </tr>
+              <tr>
+                <td><a href="https://docs.zenquotes.io/privacy-policy/" target="_blank" rel="noopener">ZenQuotes</a></td>
+                <td>ZenQuotes.io</td>
+                <td>İngilizce sözler</td>
+              </tr>
+              <tr>
+                <td><a href="https://sv443.net/privacypolicy/en" target="_blank" rel="noopener">JokeAPI</a></td>
+                <td>Sv443</td>
+                <td>İngilizce şakalar</td>
+              </tr>
+              <tr>
+                <td><a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></td>
+                <td>Pixeltail Games</td>
+                <td>İngilizce bilgi yarışması soruları</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Google verileri, Amerika Birleşik Devletleri dahil dünyanın dört bir yanındaki sunucularda, standart veri koruma güvenceleriyle işler.</p>
+      </section>
+
+      <section id="sharing">
+        <h2>7. Verilerin paylaşımı ve satışı</h2>
+        <p>Bilgilerinizi <strong>satmam</strong>, kiralamam veya takas etmem. Yalnızca şu durumlarda paylaşılır:</p>
+        <ul>
+          <li>Uygulamayı çalıştırmak ve reklam göstermek için yukarıda listelenen hizmet sağlayıcılarla (reklam seçimlerinize göre)</li>
+          <li>Yasanın gerektirdiği durumlarda veya kullanıcıların ya da başkalarının haklarını ve güvenliğini korumak için</li>
+        </ul>
+      </section>
+
+      <section id="retention">
+        <h2>8. Verilerin saklanması</h2>
+        <ul>
+          <li><strong>Analiz</strong> verileri, Firebase'de ayarlanan saklama süresinin (en fazla 14 ay) sonunda otomatik olarak silinir.</li>
+          <li><strong>Bilgi yarışması istatistikleri</strong>, uygulamada sıfırlayana kadar saklanır.</li>
+          <li><strong>Bilet toplamları</strong> kişisel veri değildir ve süresiz saklanır.</li>
+          <li><strong>Reklam verileri</strong>, Google tarafından kendi gizlilik politikasında açıklandığı şekilde saklanır.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2>9. Güvenlik</h2>
+        <p>Firebase'e ve Google'a gönderilen veriler aktarım sırasında şifrelenir (HTTPS) ve Firebase projesine erişim kısıtlıdır. Ancak internet üzerinden hiçbir aktarım veya elektronik saklama yöntemi %100 güvenli değildir; bu nedenle mutlak güvenliği garanti edemem.</p>
+      </section>
+
+      <section id="rights">
+        <h2>10. Haklarınız ve seçimleriniz</h2>
+        <p>Neyin toplandığının kontrolü sizde:</p>
+        <ul>
+          <li><strong>Kişiselleştirilmiş reklamlar:</strong> seçiminizi uygulama menüsündeki <em>Gizlilik Ayarları</em> bölümünden değiştirin (bölgenizde mevcutsa).</li>
+          <li><strong>İzleme:</strong> <em>iOS Ayarları → Gizlilik ve Güvenlik → İzleme</em> bölümünden kapatın.</li>
+          <li><strong>Reklamların tamamı:</strong> Reklamları Kaldır'ı satın alın.</li>
+          <li><strong>Bilgi yarışması istatistikleri:</strong> yarışma ekranından sıfırlayın.</li>
+          <li><strong>Her şey:</strong> uygulamayı kaldırmak tüm veri toplamayı durdurur ve rastgele kimliklerini siler.</li>
+        </ul>
+        <p>Yaşadığınız yere bağlı olarak (örneğin AB ve Birleşik Krallık'ta GDPR veya Kaliforniya'da CCPA kapsamında) kişisel verilerinize erişme, bunları düzeltme veya silme, işlenmesine itiraz etme veya kısıtlama ve yerel veri koruma kurumuna şikâyette bulunma haklarına da sahipsiniz.</p>
+        <p>Uygulamada hesap olmadığı ve yalnızca rastgele kimlikler kullanıldığı için saklanan verileri genellikle belirli bir kişiyle eşleştiremem. Bir talepte bulunmak isterseniz bana e-posta gönderin, 30 gün içinde yardımcı olmak için elimden geleni yaparım.</p>
+        <p><strong>Hukuki dayanak (AEA/Birleşik Krallık):</strong> Kullanım istatistikleri ve çevrimiçi özellikler, uygulamayı çalıştırma ve geliştirme konusundaki meşru menfaatime dayanarak işlenir. Kişiselleştirilmiş reklamlar yalnızca onayınızla gösterilir.</p>
+      </section>
+
+      <section id="children">
+        <h2>11. Çocukların gizliliği</h2>
+        <p>Uygulama 13 yaşından küçük çocuklara yönelik değildir ve onlardan bilerek kişisel bilgi toplamam. Ebeveyn veya vasiyseniz ve çocuğunuzun kişisel bilgi verdiğini düşünüyorsanız benimle iletişime geçin, silerim.</p>
+      </section>
+
+      <section id="changes">
+        <h2>12. Bu politikadaki değişiklikler</h2>
+        <p>Bu politikayı zaman zaman, örneğin uygulamaya yeni özellikler eklendiğinde güncelleyebilirim. Değişiklikler bu sayfada yeni bir “Son güncelleme” tarihiyle yayımlanır ve yayımlandıkları anda yürürlüğe girer.</p>
+        <p>Sürümler arasında fark olursa <a href="privacy-en.html" hreflang="en">İngilizce sürüm</a> geçerlidir.</p>
+      </section>
+
+      <section id="contact">
+        <h2>13. İletişim</h2>
+        <p>Bu Gizlilik Politikası hakkında sorularınız, talepleriniz veya önerileriniz mi var? Bana yazın:</p>
+        <div class="contact-card">
+          <span>Ariel Tkachenko · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=%C3%9Cretici%3A%20gizlilik%20sorusu">E-posta gönder</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Ariel Tkachenko · iOS için Üretici</footer>
+</div>
+</body>
+</html>

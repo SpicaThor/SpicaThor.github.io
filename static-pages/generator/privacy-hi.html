@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>जेनरेटर — निजता नीति</title>
+<meta name="description" content="जेनरेटर की निजता नीति — Ariel Tkachenko का मुफ़्त ऐप, जिसमें रैंडम संख्याएँ, पासवर्ड, लॉटरी टिकट, उद्धरण, चुटकुले, क्विज़ और QR कोड हैं।">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="en" href="privacy-en.html">
+<link rel="alternate" hreflang="ru" href="privacy-ru.html">
+<link rel="alternate" hreflang="uk" href="privacy-uk.html">
+<link rel="alternate" hreflang="he" href="privacy-he.html">
+<link rel="alternate" hreflang="ar" href="privacy-ar.html">
+<link rel="alternate" hreflang="es" href="privacy-es.html">
+<link rel="alternate" hreflang="pt" href="privacy-pt.html">
+<link rel="alternate" hreflang="fr" href="privacy-fr.html">
+<link rel="alternate" hreflang="de" href="privacy-de.html">
+<link rel="alternate" hreflang="it" href="privacy-it.html">
+<link rel="alternate" hreflang="pl" href="privacy-pl.html">
+<link rel="alternate" hreflang="tr" href="privacy-tr.html">
+<link rel="alternate" hreflang="id" href="privacy-id.html">
+<link rel="alternate" hreflang="hi" href="privacy-hi.html">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #c0262d;
+    --accent-soft: #fbeaea;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #ff6961;
+      --accent-soft: #3a1f22;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { position: relative; font-size: 14px; }
+  nav.lang summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  nav.lang summary::-webkit-details-marker { display: none; }
+  nav.lang summary:hover { border-color: var(--muted); }
+  nav.lang summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav.lang svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+  nav.lang .chevron { transition: transform .15s; }
+  nav.lang details[open] .chevron { transform: rotate(180deg); }
+  nav.lang ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 6px);
+    z-index: 10;
+    min-width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  }
+  nav.lang li { margin: 0; }
+  nav.lang a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.lang a:hover { background: var(--bg); color: var(--accent); }
+  nav.lang a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">निजता नीति</span>
+      <nav class="lang" aria-label="भाषा">
+        <details>
+          <summary><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>हिन्दी</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="privacy-en.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="privacy-ru.html" hreflang="ru" lang="ru">Русский</a></li>
+            <li><a href="privacy-uk.html" hreflang="uk" lang="uk">Українська</a></li>
+            <li><a href="privacy-he.html" hreflang="he" lang="he">עברית</a></li>
+            <li><a href="privacy-ar.html" hreflang="ar" lang="ar">العربية</a></li>
+            <li><a href="privacy-es.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="privacy-pt.html" hreflang="pt" lang="pt">Português</a></li>
+            <li><a href="privacy-fr.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="privacy-de.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="privacy-it.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="privacy-pl.html" hreflang="pl" lang="pl">Polski</a></li>
+            <li><a href="privacy-tr.html" hreflang="tr" lang="tr">Türkçe</a></li>
+            <li><a href="privacy-id.html" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+            <li><a href="privacy-hi.html" hreflang="hi" lang="hi" aria-current="page">हिन्दी</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+    <h1>जेनरेटर</h1>
+    <p class="meta">रैंडम संख्याएँ, पासवर्ड, लॉटरी टिकट, उद्धरण, चुटकुले, क्विज़ और QR कोड · पिछला अपडेट: 9 अक्टूबर 2026</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="विषय सूची">
+      <strong>विषय सूची</strong>
+      <ol>
+        <li><a href="#about">इस नीति के बारे में</a></li>
+        <li><a href="#on-device">आपके डिवाइस पर क्या रहता है</a></li>
+        <li><a href="#collect">कौन-सी जानकारी ली जाती है</a></li>
+        <li><a href="#ads">विज्ञापन और ट्रैकिंग</a></li>
+        <li><a href="#purchases">ऐप में ख़रीदारी</a></li>
+        <li><a href="#third-parties">तीसरे पक्ष की सेवाएँ</a></li>
+        <li><a href="#sharing">साझा करना और बेचना</a></li>
+        <li><a href="#retention">डेटा कितने समय तक रखा जाता है</a></li>
+        <li><a href="#security">सुरक्षा</a></li>
+        <li><a href="#rights">आपके अधिकार और विकल्प</a></li>
+        <li><a href="#children">बच्चों की निजता</a></li>
+        <li><a href="#changes">इस नीति में बदलाव</a></li>
+        <li><a href="#contact">संपर्क</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>संक्षेप में</h2>
+        <ul>
+          <li>न खाता, न साइन-अप। ऐप कभी आपका नाम या ईमेल नहीं माँगता।</li>
+          <li>आप जो भी बनाते हैं (संख्याएँ, पासवर्ड, टिकट, QR कोड), वह आपके डिवाइस पर बनता है और मुझे कभी नहीं भेजा जाता।</li>
+          <li>मुफ़्त वर्शन में Google के विज्ञापन दिखते हैं। विज्ञापन निजीकृत हों या नहीं, और ऐप आपको ट्रैक कर सकता है या नहीं, यह आप चुनते हैं।</li>
+          <li>उद्धरण, चुटकुले और क्विज़ प्रश्न तीसरे पक्ष की मुफ़्त सेवाओं से लोड होते हैं, जो किसी भी वेबसाइट की तरह आपका IP पता देखती हैं।</li>
+          <li>गुमनाम उपयोग आँकड़े (कौन-सी स्क्रीन और कार्रवाइयाँ इस्तेमाल होती हैं) ऐप को बेहतर बनाने में मेरी मदद करते हैं।</li>
+          <li>मैं आपका डेटा कभी नहीं बेचता। <strong>विज्ञापन हटाएँ</strong> ख़रीदने से विज्ञापन पूरी तरह बंद हो जाते हैं।</li>
+        </ul>
+      </div>
+
+      <section id="about">
+        <h2>1. इस नीति के बारे में</h2>
+        <p>जेनरेटर (“ऐप”) को स्वतंत्र डेवलपर Ariel Tkachenko (“मैं”) बनाते और संभालते हैं। ऐप डाउनलोड और इस्तेमाल करने के लिए मुफ़्त है, और विज्ञापनों से चलता है।</p>
+        <p>यह नीति बताती है कि ऐप कौन-सी जानकारी लेता है, क्यों, किसके साथ साझा करता है, और आपके पास क्या विकल्प हैं। ऐप का इस्तेमाल करके आप यहाँ बताए गए तरीक़े से जानकारी लेने और इस्तेमाल करने पर सहमति देते हैं।</p>
+      </section>
+
+      <section id="on-device">
+        <h2>2. आपके डिवाइस पर क्या रहता है</h2>
+        <p>मुख्य सुविधाएँ पूरी तरह आपके डिवाइस पर चलती हैं, और उनकी सामग्री कभी मुझे या किसी और को नहीं भेजी जाती:</p>
+        <ul>
+          <li><strong>रैंडम संख्याएँ, पासवर्ड और लॉटरी टिकट</strong> डिवाइस पर ही बनते हैं। पासवर्ड की मज़बूती भी डिवाइस पर ही जाँची जाती है।</li>
+          <li><strong>QR कोड।</strong> आपका डाला गया टेक्स्ट, Wi-Fi नेटवर्क के नाम और पासवर्ड आपके डिवाइस पर QR कोड में बदलते हैं। वे कहीं नहीं भेजे जाते, और स्क्रीन छोड़ने के बाद ऐप उन्हें नहीं रखता।</li>
+          <li><strong>संपर्क।</strong> अगर आप किसी संपर्क से QR कोड बनाते हैं, तो iOS आपको एक ही संपर्क चुनने देता है, और कोड में सिर्फ़ उसी के विवरण जाते हैं। ऐप आपकी एड्रेस बुक नहीं देख सकता और संपर्क विवरण कभी अपलोड नहीं करता।</li>
+          <li><strong>फ़ोटो।</strong> अगर आप QR कोड में लोगो जोड़ते हैं, तो सिर्फ़ आपकी चुनी इमेज इस्तेमाल होती है। बनी हुई इमेज सहेजने पर वह आपकी फ़ोटो लाइब्रेरी में जुड़ जाती है। कुछ भी अपलोड नहीं होता।</li>
+          <li><strong>सेटिंग</strong>, जैसे आपकी पसंदीदा रेंज और विकल्प, आपके डिवाइस पर सहेजी जाती हैं। अगर आप iCloud में साइन इन हैं, तो Apple उन्हें आपके iCloud खाते से आपके दूसरे डिवाइस पर सिंक करता है; वे कभी मुझे नहीं भेजी जातीं। नए कोड के लिए रखा गया QR लोगो सिर्फ़ इसी डिवाइस पर रहता है।</li>
+        </ul>
+        <p>अगर आप बनाई गई सामग्री शेयर करते हैं, तो वह सिर्फ़ वहीं जाती है जहाँ आप उसे iOS की सामान्य शेयर शीट से भेजते हैं।</p>
+      </section>
+
+      <section id="collect">
+        <h2>3. कौन-सी जानकारी ली जाती है</h2>
+        <p>ऐप ऐसी जानकारी नहीं लेता जिससे आपकी सीधे पहचान हो, जैसे आपका नाम, ईमेल पता, फ़ोन नंबर या सटीक लोकेशन। वह नीचे दी गई तकनीकी और उपयोग संबंधी जानकारी लेता है:</p>
+
+        <h3>उपयोग आँकड़े (Firebase Analytics)</h3>
+        <ul>
+          <li>आप कौन-सी स्क्रीन खोलते हैं और “बनाएँ”, “शेयर करें” या कोई सेटिंग बदलने जैसी कार्रवाइयाँ। स्क्रीन और कार्रवाई दर्ज होती है, आपने क्या बनाया यह कभी नहीं।</li>
+          <li>ऐप की भाषा, ऐप का वर्शन, डिवाइस मॉडल, iOS वर्शन और अनुमानित देश (आपके IP पते से निकाला गया)</li>
+          <li>ऐप इंस्टॉलेशन का एक रैंडम पहचानकर्ता, और डिवाइस का विज्ञापन पहचानकर्ता सिर्फ़ तब, जब आप ट्रैकिंग की अनुमति दें</li>
+          <li>विज्ञापन लोड हुए या नहीं, और विज्ञापन हटाएँ की ख़रीद से जुड़ी घटनाएँ (भुगतान विवरण कभी नहीं)</li>
+        </ul>
+
+        <h3>गुमनाम साइन-इन और ऑनलाइन सुविधाएँ (Firebase Authentication और Realtime Database)</h3>
+        <ul>
+          <li>इन सुविधाओं के लिए ऐप <strong>गुमनाम रूप से</strong> साइन इन करता है। Firebase एक रैंडम यूज़र ID देता है, जो आपकी पहचान, ईमेल या Apple ID से जुड़ा नहीं होता।</li>
+          <li><strong>क्विज़ के आँकड़े</strong> (आपने कितने प्रश्नों के उत्तर दिए और कितने सही थे) उसी रैंडम ID के तहत रखे जाते हैं, ताकि आपका स्कोर बना रहे।</li>
+          <li><strong>लॉटरी टिकट काउंटर।</strong> ऐप हर बने टिकट को साझा कुल गिनती में जोड़ता है (जैसे, अब तक कुल कितने “लकी” टिकट बने हैं)। सिर्फ़ कुल गिनती रखी जाती है, आपके टिकट या आपसे जुड़ी कोई चीज़ नहीं।</li>
+        </ul>
+
+        <h3>उद्धरण, चुटकुले और क्विज़ प्रश्न (तीसरे पक्ष की सामग्री सेवाएँ)</h3>
+        <p>उद्धरण, चुटकुले और क्विज़ प्रश्न अंग्रेज़ी और रूसी में उपलब्ध हैं। वे ऐप की भाषा के हिसाब से तीसरे पक्ष की मुफ़्त सेवाओं से लोड होते हैं:</p>
+        <ul>
+          <li><strong>रूसी:</strong> उद्धरण और क्विज़ प्रश्न <a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a> से, चुटकुले <a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a> से</li>
+          <li><strong>अंग्रेज़ी:</strong> उद्धरण <a href="https://zenquotes.io" target="_blank" rel="noopener">ZenQuotes</a> से, चुटकुले <a href="https://jokeapi.dev" target="_blank" rel="noopener">JokeAPI</a> से, क्विज़ प्रश्न <a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a> से</li>
+        </ul>
+        <p>जब आप ये स्क्रीन खोलते हैं, तो ऐप सेवा से सामग्री माँगता है। किसी भी वेबसाइट की तरह, सेवा को हर अनुरोध के साथ आपका IP पता और अनुरोध की बुनियादी जानकारी मिलती है। रूसी क्विज़ में आपका चुना उत्तर randstuff.ru को भी भेजा जाता है, जो उसे जाँचता है; अंग्रेज़ी में उत्तर आपके डिवाइस पर जाँचे जाते हैं। आपके बारे में कोई और जानकारी इन सेवाओं को नहीं भेजी जाती।</p>
+        <p>ऐप की बाक़ी भाषाओं में ये स्क्रीन छिपी रहती हैं, इसलिए इन सेवाओं से कुछ भी लोड नहीं होता।</p>
+      </section>
+
+      <section id="ads">
+        <h2>4. विज्ञापन और ट्रैकिंग</h2>
+        <p>मुफ़्त वर्शन में <strong>Google AdMob</strong> का बैनर विज्ञापन दिखता है। विज्ञापन दिखाने और मापने के लिए Google आपका IP पता, डिवाइस और ऐप की जानकारी, विज्ञापनों से इंटरैक्शन और, अगर आप अनुमति दें, तो आपके डिवाइस का विज्ञापन पहचानकर्ता (IDFA) ले सकता है।</p>
+        <ul>
+          <li><strong>सहमति (EEA, यूके, स्विट्ज़रलैंड और अमेरिका के कुछ राज्य)।</strong> जहाँ क़ानून ज़रूरी बनाता है, वहाँ ऐप कोई भी विज्ञापन लोड करने से पहले Google का सहमति फ़ॉर्म दिखाता है। आप चुन सकते हैं कि आपका डेटा निजीकृत विज्ञापनों के लिए इस्तेमाल हो या नहीं, और ऐप के मेन्यू में <strong>निजता सेटिंग</strong> से कभी भी अपना विकल्प बदल सकते हैं।</li>
+          <li><strong>ऐप ट्रैकिंग पारदर्शिता (App Tracking Transparency)।</strong> iOS पूछता है कि क्या ऐप दूसरी कंपनियों के ऐप और वेबसाइटों पर आपको ट्रैक कर सकता है। अगर आप “ऐप को ट्रैक न करने के लिए कहें” चुनते हैं, तो विज्ञापन पहचानकर्ता साझा नहीं होता और आपको ग़ैर-निजीकृत विज्ञापन दिखेंगे। इसे आप कभी भी <em>iOS सेटिंग → निजता और सुरक्षा → ट्रैकिंग</em> में बदल सकते हैं।</li>
+          <li><strong>विज्ञापन हटाएँ।</strong> अगर आप विज्ञापन हटाएँ ख़रीदते हैं, तो ऐप न विज्ञापन लोड करता है और न ही ट्रैकिंग का अनुरोध दिखाता है।</li>
+        </ul>
+        <p>और जानें: <a href="https://policies.google.com/technologies/partner-sites?hl=hi" target="_blank" rel="noopener">Google अपनी सेवाओं का इस्तेमाल करने वाले ऐप की जानकारी कैसे इस्तेमाल करता है</a>।</p>
+      </section>
+
+      <section id="purchases">
+        <h2>5. ऐप में ख़रीदारी</h2>
+        <p>वैकल्पिक विज्ञापन हटाएँ ख़रीद को पूरी तरह Apple, App Store के ज़रिए प्रोसेस करता है। मुझे आपका नाम, Apple ID या भुगतान विवरण नहीं मिलते। ऐप सिर्फ़ Apple से जाँचता है कि ख़रीद आपके खाते में सक्रिय है या नहीं, ताकि उसे आपके दूसरे डिवाइस पर रीस्टोर किया जा सके।</p>
+      </section>
+
+      <section id="third-parties">
+        <h2>6. तीसरे पक्ष की सेवाएँ</h2>
+        <p>ये सेवाएँ ऐप की ओर से डेटा प्रोसेस करती हैं, हर एक अपनी निजता नीति के तहत:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>सेवा</th><th>प्रदाता</th><th>उद्देश्य</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+                <td>Google LLC</td>
+                <td>एनालिटिक्स, गुमनाम साइन-इन, क्विज़ के आँकड़े और टिकटों की कुल गिनती</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=hi" target="_blank" rel="noopener">AdMob</a></td>
+                <td>Google LLC</td>
+                <td>विज्ञापन दिखाना, सहमति प्रबंधन</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">App Store</a></td>
+                <td>Apple Inc.</td>
+                <td>ऐप में ख़रीदारी; iCloud से आपकी सेटिंग सिंक करना</td>
+              </tr>
+              <tr>
+                <td><a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a></td>
+                <td>randstuff.ru</td>
+                <td>रूसी उद्धरण और क्विज़ प्रश्न, रूसी क्विज़ के उत्तर जाँचना</td>
+              </tr>
+              <tr>
+                <td><a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></td>
+                <td>shortiki.com</td>
+                <td>रूसी चुटकुले</td>
+              </tr>
+              <tr>
+                <td><a href="https://docs.zenquotes.io/privacy-policy/" target="_blank" rel="noopener">ZenQuotes</a></td>
+                <td>ZenQuotes.io</td>
+                <td>अंग्रेज़ी में उद्धरण</td>
+              </tr>
+              <tr>
+                <td><a href="https://sv443.net/privacypolicy/en" target="_blank" rel="noopener">JokeAPI</a></td>
+                <td>Sv443</td>
+                <td>अंग्रेज़ी में चुटकुले</td>
+              </tr>
+              <tr>
+                <td><a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></td>
+                <td>Pixeltail Games</td>
+                <td>अंग्रेज़ी में क्विज़ प्रश्न</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Google दुनिया भर के सर्वरों पर, जिनमें अमेरिका भी शामिल है, अपने मानक डेटा-सुरक्षा उपायों के तहत डेटा प्रोसेस करता है।</p>
+      </section>
+
+      <section id="sharing">
+        <h2>7. डेटा साझा करना और बेचना</h2>
+        <p>मैं आपकी जानकारी <strong>नहीं</strong> बेचता, किराए पर नहीं देता और उसका व्यापार नहीं करता। वह सिर्फ़ इन मामलों में साझा होती है:</p>
+        <ul>
+          <li>ऊपर दिए गए सेवा प्रदाताओं के साथ, ऐप चलाने और विज्ञापन दिखाने के लिए (आपके विज्ञापन विकल्पों के अनुसार)</li>
+          <li>जब क़ानून के तहत ज़रूरी हो, या उपयोगकर्ताओं या दूसरों के अधिकारों और सुरक्षा की रक्षा के लिए</li>
+        </ul>
+      </section>
+
+      <section id="retention">
+        <h2>8. डेटा कितने समय तक रखा जाता है</h2>
+        <ul>
+          <li><strong>एनालिटिक्स</strong> डेटा Firebase में तय अवधि (ज़्यादा से ज़्यादा 14 महीने) के बाद अपने आप मिट जाता है।</li>
+          <li><strong>क्विज़ के आँकड़े</strong> तब तक रखे जाते हैं जब तक आप उन्हें ऐप में रीसेट न करें, जिससे वे शून्य हो जाते हैं।</li>
+          <li><strong>टिकटों की कुल गिनती</strong> निजी डेटा नहीं है और अनिश्चित समय तक रखी जाती है।</li>
+          <li><strong>विज्ञापन डेटा</strong> Google अपनी निजता नीति के अनुसार रखता है।</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2>9. सुरक्षा</h2>
+        <p>Firebase और Google को भेजा गया डेटा ट्रांज़िट में एन्क्रिप्ट होता है (HTTPS), और Firebase प्रोजेक्ट तक पहुँच सीमित है। फिर भी, इंटरनेट पर भेजने या इलेक्ट्रॉनिक रूप से सहेजने का कोई तरीक़ा 100% सुरक्षित नहीं है, इसलिए मैं पूर्ण सुरक्षा की गारंटी नहीं दे सकता।</p>
+      </section>
+
+      <section id="rights">
+        <h2>10. आपके अधिकार और विकल्प</h2>
+        <p>क्या लिया जाता है, यह आपके हाथ में है:</p>
+        <ul>
+          <li><strong>निजीकृत विज्ञापन:</strong> ऐप के मेन्यू में <em>निजता सेटिंग</em> से अपना विकल्प बदलें (जहाँ आपके क्षेत्र में उपलब्ध हो)।</li>
+          <li><strong>ट्रैकिंग:</strong> इसे <em>iOS सेटिंग → निजता और सुरक्षा → ट्रैकिंग</em> में बंद करें।</li>
+          <li><strong>विज्ञापन पूरी तरह:</strong> विज्ञापन हटाएँ ख़रीदें।</li>
+          <li><strong>क्विज़ के आँकड़े:</strong> उन्हें क्विज़ स्क्रीन पर रीसेट करें।</li>
+          <li><strong>सब कुछ:</strong> ऐप अनइंस्टॉल करने से सारा डेटा लेना बंद हो जाता है और उसके रैंडम पहचानकर्ता हट जाते हैं।</li>
+        </ul>
+        <p>आप कहाँ रहते हैं, इसके आधार पर (जैसे EU/UK में GDPR या कैलिफ़ोर्निया में CCPA के तहत) आपको अपने निजी डेटा तक पहुँचने, उसे सुधारने या मिटाने, उसकी प्रोसेसिंग पर आपत्ति करने या उसे सीमित करने, और अपने स्थानीय डेटा-सुरक्षा प्राधिकरण से शिकायत करने का अधिकार भी है।</p>
+        <p>क्योंकि ऐप में कोई खाता नहीं है और सिर्फ़ रैंडम पहचानकर्ता इस्तेमाल होते हैं, आमतौर पर मैं सहेजे गए डेटा को किसी ख़ास व्यक्ति से नहीं जोड़ सकता। अगर आप कोई अनुरोध करना चाहते हैं, तो मुझे ईमेल करें और मैं 30 दिनों के भीतर मदद करने की पूरी कोशिश करूँगा।</p>
+        <p><strong>क़ानूनी आधार (EEA/UK):</strong> उपयोग आँकड़े और ऑनलाइन सुविधाएँ ऐप चलाने और उसे बेहतर बनाने में मेरे वैध हित के आधार पर प्रोसेस की जाती हैं। निजीकृत विज्ञापन सिर्फ़ आपकी सहमति से दिखाए जाते हैं।</p>
+      </section>
+
+      <section id="children">
+        <h2>11. बच्चों की निजता</h2>
+        <p>यह ऐप 13 साल से कम उम्र के बच्चों के लिए नहीं है, और मैं जानबूझकर उनसे निजी जानकारी नहीं लेता। अगर आप माता-पिता या अभिभावक हैं और मानते हैं कि आपके बच्चे ने निजी जानकारी दी है, तो मुझसे संपर्क करें और मैं उसे मिटा दूँगा।</p>
+      </section>
+
+      <section id="changes">
+        <h2>12. इस नीति में बदलाव</h2>
+        <p>मैं समय-समय पर इस नीति को अपडेट कर सकता हूँ, जैसे जब ऐप में नई सुविधाएँ जुड़ें। बदलाव इस पेज पर नई “पिछला अपडेट” तारीख़ के साथ प्रकाशित होते हैं और प्रकाशित होते ही लागू हो जाते हैं।</p>
+        <p>अगर अलग-अलग भाषाओं के वर्शन में अंतर हो, तो <a href="privacy-en.html" hreflang="en">अंग्रेज़ी वर्शन</a> मान्य होगा।</p>
+      </section>
+
+      <section id="contact">
+        <h2>13. संपर्क</h2>
+        <p>इस निजता नीति के बारे में सवाल, अनुरोध या सुझाव? मुझसे संपर्क करें:</p>
+        <div class="contact-card">
+          <span>Ariel Tkachenko · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=%E0%A4%9C%E0%A5%87%E0%A4%A8%E0%A4%B0%E0%A5%87%E0%A4%9F%E0%A4%B0%3A%20%E0%A4%A8%E0%A4%BF%E0%A4%9C%E0%A4%A4%E0%A4%BE%20%E0%A4%B8%E0%A5%87%20%E0%A4%9C%E0%A5%81%E0%A4%A1%E0%A4%BC%E0%A4%BE%20%E0%A4%B8%E0%A4%B5%E0%A4%BE%E0%A4%B2">ईमेल करें</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Ariel Tkachenko · iOS के लिए जेनरेटर</footer>
+</div>
+</body>
+</html>

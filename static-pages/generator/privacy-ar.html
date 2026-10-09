@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المولّد — سياسة الخصوصية</title>
+<meta name="description" content="سياسة الخصوصية لتطبيق المولّد المجاني للأرقام العشوائية وكلمات السر وتذاكر اليانصيب والاقتباسات والنكات والمسابقات ورموز QR، من تطوير Ariel Tkachenko.">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="en" href="privacy-en.html">
+<link rel="alternate" hreflang="ru" href="privacy-ru.html">
+<link rel="alternate" hreflang="uk" href="privacy-uk.html">
+<link rel="alternate" hreflang="he" href="privacy-he.html">
+<link rel="alternate" hreflang="ar" href="privacy-ar.html">
+<link rel="alternate" hreflang="es" href="privacy-es.html">
+<link rel="alternate" hreflang="pt" href="privacy-pt.html">
+<link rel="alternate" hreflang="fr" href="privacy-fr.html">
+<link rel="alternate" hreflang="de" href="privacy-de.html">
+<link rel="alternate" hreflang="it" href="privacy-it.html">
+<link rel="alternate" hreflang="pl" href="privacy-pl.html">
+<link rel="alternate" hreflang="tr" href="privacy-tr.html">
+<link rel="alternate" hreflang="id" href="privacy-id.html">
+<link rel="alternate" hreflang="hi" href="privacy-hi.html">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #c0262d;
+    --accent-soft: #fbeaea;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #ff6961;
+      --accent-soft: #3a1f22;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { position: relative; font-size: 14px; }
+  nav.lang summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  nav.lang summary::-webkit-details-marker { display: none; }
+  nav.lang summary:hover { border-color: var(--muted); }
+  nav.lang summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav.lang svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+  nav.lang .chevron { transition: transform .15s; }
+  nav.lang details[open] .chevron { transform: rotate(180deg); }
+  nav.lang ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 6px);
+    z-index: 10;
+    min-width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  }
+  nav.lang li { margin: 0; }
+  nav.lang a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.lang a:hover { background: var(--bg); color: var(--accent); }
+  nav.lang a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">سياسة الخصوصية</span>
+      <nav class="lang" aria-label="اللغة">
+        <details>
+          <summary><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>العربية</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="privacy-en.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="privacy-ru.html" hreflang="ru" lang="ru">Русский</a></li>
+            <li><a href="privacy-uk.html" hreflang="uk" lang="uk">Українська</a></li>
+            <li><a href="privacy-he.html" hreflang="he" lang="he">עברית</a></li>
+            <li><a href="privacy-ar.html" hreflang="ar" lang="ar" aria-current="page">العربية</a></li>
+            <li><a href="privacy-es.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="privacy-pt.html" hreflang="pt" lang="pt">Português</a></li>
+            <li><a href="privacy-fr.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="privacy-de.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="privacy-it.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="privacy-pl.html" hreflang="pl" lang="pl">Polski</a></li>
+            <li><a href="privacy-tr.html" hreflang="tr" lang="tr">Türkçe</a></li>
+            <li><a href="privacy-id.html" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+            <li><a href="privacy-hi.html" hreflang="hi" lang="hi">हिन्दी</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+    <h1>المولّد</h1>
+    <p class="meta">أرقام عشوائية، كلمات سر، تذاكر يانصيب، اقتباسات، نكات، مسابقة ورموز QR · آخر تحديث: 9 أكتوبر 2026</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="المحتويات">
+      <strong>المحتويات</strong>
+      <ol>
+        <li><a href="#about">حول هذه السياسة</a></li>
+        <li><a href="#on-device">ما يبقى على جهازك</a></li>
+        <li><a href="#collect">المعلومات التي تُجمع</a></li>
+        <li><a href="#ads">الإعلانات والتتبع</a></li>
+        <li><a href="#purchases">عمليات الشراء داخل التطبيق</a></li>
+        <li><a href="#third-parties">خدمات الجهات الخارجية</a></li>
+        <li><a href="#sharing">المشاركة والبيع</a></li>
+        <li><a href="#retention">الاحتفاظ بالبيانات</a></li>
+        <li><a href="#security">الأمان</a></li>
+        <li><a href="#rights">حقوقك وخياراتك</a></li>
+        <li><a href="#children">خصوصية الأطفال</a></li>
+        <li><a href="#changes">التغييرات على هذه السياسة</a></li>
+        <li><a href="#contact">التواصل</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>باختصار</h2>
+        <ul>
+          <li>لا حساب ولا تسجيل. لا يطلب التطبيق أبدًا اسمك أو بريدك الإلكتروني.</li>
+          <li>كل ما تولّده (أرقام، كلمات سر، تذاكر، رموز QR) يُنشأ على جهازك ولا يُرسل إليّ أبدًا.</li>
+          <li>تعرض النسخة المجانية إعلانات Google. أنت من يقرر ما إذا كانت الإعلانات مخصصة وما إذا كان يُسمح للتطبيق بتتبعك.</li>
+          <li>تُحمَّل الاقتباسات والنكات وأسئلة المسابقة من خدمات مجانية تابعة لجهات خارجية، ترى عنوان IP الخاص بك كأي موقع ويب.</li>
+          <li>تساعدني إحصاءات الاستخدام المجهولة (أي الشاشات والإجراءات تُستخدم) على تحسين التطبيق.</li>
+          <li>لا أبيع بياناتك أبدًا. شراء <strong>إزالة الإعلانات</strong> يوقف الإعلانات تمامًا.</li>
+        </ul>
+      </div>
+
+      <section id="about">
+        <h2>1. حول هذه السياسة</h2>
+        <p>يطوّر تطبيق المولّد («التطبيق») ويحافظ عليه Ariel Tkachenko، وهو مطوّر مستقل («أنا»). التطبيق مجاني التنزيل والاستخدام، وتدعمه الإعلانات.</p>
+        <p>توضح هذه السياسة ما المعلومات التي يجمعها التطبيق، ولماذا، ومع من تُشارك، والخيارات المتاحة لك. باستخدامك التطبيق، فإنك توافق على جمع المعلومات واستخدامها كما هو موضح هنا.</p>
+      </section>
+
+      <section id="on-device">
+        <h2>2. ما يبقى على جهازك</h2>
+        <p>تعمل الميزات الرئيسية بالكامل على جهازك، ولا يُرسل محتواها إليّ أو إلى أي أحد آخر أبدًا:</p>
+        <ul>
+          <li><strong>الأرقام العشوائية وكلمات السر وتذاكر اليانصيب</strong> تُولَّد محليًا. وتُفحص قوة كلمة السر محليًا أيضًا.</li>
+          <li><strong>رموز QR.</strong> النص وأسماء شبكات Wi-Fi وكلمات سرها التي تدخلها تتحول إلى رمز QR على جهازك. لا تُرسل إلى أي مكان، ولا يحتفظ بها التطبيق بعد مغادرتك الشاشة.</li>
+          <li><strong>جهات الاتصال.</strong> إذا أنشأت رمز QR من جهة اتصال، يتيح لك iOS اختيار جهة اتصال واحدة، ولا توضع في الرمز إلا بياناتها. لا يستطيع التطبيق تصفح دفتر عناوينك ولا يرفع بيانات جهات الاتصال أبدًا.</li>
+          <li><strong>الصور.</strong> إذا أضفت شعارًا إلى رمز QR، فلا تُستخدم إلا الصورة التي تختارها. حفظ صورة مولّدة يضيفها إلى مكتبة صورك. لا يُرفع أي شيء.</li>
+          <li><strong>الإعدادات</strong>، مثل النطاقات والخيارات المفضلة لديك، تُخزَّن على جهازك. إذا كنت مسجلًا الدخول إلى iCloud، تزامنها Apple مع أجهزتك الأخرى عبر حساب iCloud الخاص بك؛ ولا تُرسل إليّ أبدًا. شعار QR الذي تختار الاحتفاظ به للرموز الجديدة يبقى على هذا الجهاز فقط.</li>
+        </ul>
+        <p>إذا شاركت محتوى مولّدًا، فإنه يذهب فقط إلى حيث تختار إرساله، عبر ورقة المشاركة القياسية في iOS.</p>
+      </section>
+
+      <section id="collect">
+        <h2>3. المعلومات التي تُجمع</h2>
+        <p>لا يجمع التطبيق معلومات تحدد هويتك مباشرة، مثل اسمك أو بريدك الإلكتروني أو رقم هاتفك أو موقعك الدقيق. لكنه يجمع المعلومات التقنية ومعلومات الاستخدام التالية:</p>
+
+        <h3>إحصاءات الاستخدام (Firebase Analytics)</h3>
+        <ul>
+          <li>الشاشات التي تفتحها والإجراءات مثل «توليد» أو «مشاركة» أو تغيير إعداد. تُسجَّل الشاشة والإجراء، ولا يُسجَّل أبدًا ما ولّدته.</li>
+          <li>لغة التطبيق وإصداره وطراز الجهاز وإصدار iOS والبلد التقريبي (يُستنتج من عنوان IP)</li>
+          <li>معرّف عشوائي لتثبيت التطبيق، ومعرّف الإعلانات للجهاز فقط إذا سمحت بالتتبع</li>
+          <li>ما إذا كانت الإعلانات قد حُمِّلت، وأحداث شراء إزالة الإعلانات (وليس بيانات الدفع أبدًا)</li>
+        </ul>
+
+        <h3>تسجيل الدخول المجهول والميزات عبر الإنترنت (Firebase Authentication وRealtime Database)</h3>
+        <ul>
+          <li>لهذه الميزات، يسجّل التطبيق الدخول <strong>بشكل مجهول</strong>. يخصص Firebase معرّف مستخدم عشوائيًا غير مرتبط بهويتك أو بريدك الإلكتروني أو Apple ID.</li>
+          <li><strong>إحصاءات المسابقة</strong> (كم سؤالًا أجبت وكم إجابة كانت صحيحة) تُحفظ تحت ذلك المعرّف العشوائي لكي تبقى نتيجتك.</li>
+          <li><strong>عدّادات تذاكر اليانصيب.</strong> يضيف التطبيق كل تذكرة مولّدة إلى مجاميع مشتركة (مثل عدد التذاكر «المحظوظة» المولّدة إجمالًا). لا تُخزَّن إلا المجاميع، لا تذاكرك ولا أي شيء مرتبط بك.</li>
+        </ul>
+
+        <h3>الاقتباسات والنكات وأسئلة المسابقة (خدمات محتوى من جهات خارجية)</h3>
+        <p>الاقتباسات والنكات وأسئلة المسابقة متاحة بالإنجليزية والروسية. وتُحمَّل من خدمات مجانية تابعة لجهات خارجية، حسب لغة التطبيق:</p>
+        <ul>
+          <li><strong>الروسية:</strong> الاقتباسات وأسئلة المسابقة من <a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a>، والنكات من <a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></li>
+          <li><strong>الإنجليزية:</strong> الاقتباسات من <a href="https://zenquotes.io" target="_blank" rel="noopener">ZenQuotes</a>، والنكات من <a href="https://jokeapi.dev" target="_blank" rel="noopener">JokeAPI</a>، وأسئلة المسابقة من <a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></li>
+        </ul>
+        <p>عندما تفتح هذه الشاشات، يطلب التطبيق المحتوى من الخدمة. وكأي موقع ويب، تتلقى الخدمة مع كل طلب عنوان IP الخاص بك وتفاصيل أساسية عن الطلب. في المسابقة الروسية، تُرسل الإجابة التي تختارها أيضًا إلى randstuff.ru الذي يتحقق منها؛ أما بالإنجليزية فتُفحص الإجابات على جهازك. لا تُرسل أي معلومات أخرى عنك إلى هذه الخدمات.</p>
+        <p>في لغات التطبيق الأخرى تكون هذه الشاشات مخفية، لذا لا يُحمَّل شيء من هذه الخدمات.</p>
+      </section>
+
+      <section id="ads">
+        <h2>4. الإعلانات والتتبع</h2>
+        <p>تعرض النسخة المجانية إعلانًا شريطيًا من <strong>Google AdMob</strong>. لعرض الإعلانات وقياسها، قد تجمع Google عنوان IP الخاص بك ومعلومات الجهاز والتطبيق والتفاعل مع الإعلانات، ومعرّف الإعلانات لجهازك (IDFA) إذا سمحت بذلك.</p>
+        <ul>
+          <li><strong>الموافقة (المنطقة الاقتصادية الأوروبية والمملكة المتحدة وسويسرا وبعض الولايات الأمريكية).</strong> حيث يشترط القانون ذلك، يعرض التطبيق نموذج موافقة Google قبل تحميل أي إعلانات. يمكنك اختيار ما إذا كان يجوز استخدام بياناتك للإعلانات المخصصة، وتغيير اختيارك في أي وقت من <strong>إعدادات الخصوصية</strong> في قائمة التطبيق.</li>
+          <li><strong>شفافية تتبع التطبيقات (App Tracking Transparency).</strong> يسألك iOS ما إذا كان يُسمح للتطبيق بتتبعك عبر التطبيقات والمواقع التي تملكها شركات أخرى. إذا اخترت «اطلب من التطبيق عدم التتبع»، فلن يُشارك معرّف الإعلانات وسترى إعلانات غير مخصصة. يمكنك تغيير ذلك في أي وقت من <em>إعدادات iOS ← الخصوصية والأمن ← التتبع</em>.</li>
+          <li><strong>إزالة الإعلانات.</strong> إذا اشتريت إزالة الإعلانات، فلن يحمّل التطبيق الإعلانات ولن يعرض طلب التتبع إطلاقًا.</li>
+        </ul>
+        <p>اعرف المزيد في <a href="https://policies.google.com/technologies/partner-sites?hl=ar" target="_blank" rel="noopener">كيف تستخدم Google المعلومات من التطبيقات التي تستخدم خدماتها</a>.</p>
+      </section>
+
+      <section id="purchases">
+        <h2>5. عمليات الشراء داخل التطبيق</h2>
+        <p>تعالج Apple شراء إزالة الإعلانات الاختياري بالكامل عبر App Store. لا أتلقى اسمك أو Apple ID أو بيانات الدفع. يتحقق التطبيق فقط لدى Apple مما إذا كان الشراء نشطًا في حسابك، لكي يمكن استعادته على أجهزتك الأخرى.</p>
+      </section>
+
+      <section id="third-parties">
+        <h2>6. خدمات الجهات الخارجية</h2>
+        <p>تعالج هذه الخدمات البيانات نيابة عن التطبيق، كلٌّ وفق سياسة الخصوصية الخاصة به:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>الخدمة</th><th>المزوّد</th><th>الغرض</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+                <td>Google LLC</td>
+                <td>التحليلات، تسجيل الدخول المجهول، إحصاءات المسابقة ومجاميع التذاكر</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=ar" target="_blank" rel="noopener">AdMob</a></td>
+                <td>Google LLC</td>
+                <td>عرض الإعلانات، إدارة الموافقة</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">App Store</a></td>
+                <td>Apple Inc.</td>
+                <td>عمليات الشراء داخل التطبيق؛ مزامنة إعداداتك عبر iCloud</td>
+              </tr>
+              <tr>
+                <td><a href="https://randstuff.ru" target="_blank" rel="noopener">randstuff.ru</a></td>
+                <td>randstuff.ru</td>
+                <td>اقتباسات وأسئلة مسابقة بالروسية، والتحقق من إجابات المسابقة الروسية</td>
+              </tr>
+              <tr>
+                <td><a href="https://shortiki.com" target="_blank" rel="noopener">shortiki.com</a></td>
+                <td>shortiki.com</td>
+                <td>نكات بالروسية</td>
+              </tr>
+              <tr>
+                <td><a href="https://docs.zenquotes.io/privacy-policy/" target="_blank" rel="noopener">ZenQuotes</a></td>
+                <td>ZenQuotes.io</td>
+                <td>اقتباسات بالإنجليزية</td>
+              </tr>
+              <tr>
+                <td><a href="https://sv443.net/privacypolicy/en" target="_blank" rel="noopener">JokeAPI</a></td>
+                <td>Sv443</td>
+                <td>نكات بالإنجليزية</td>
+              </tr>
+              <tr>
+                <td><a href="https://opentdb.com" target="_blank" rel="noopener">Open Trivia DB</a></td>
+                <td>Pixeltail Games</td>
+                <td>أسئلة مسابقة بالإنجليزية</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>تعالج Google البيانات على خوادم حول العالم، بما في ذلك الولايات المتحدة، وفق ضمانات حماية البيانات القياسية لديها.</p>
+      </section>
+
+      <section id="sharing">
+        <h2>7. مشاركة البيانات وبيعها</h2>
+        <p>أنا <strong>لا</strong> أبيع معلوماتك ولا أؤجرها ولا أتاجر بها. تُشارك فقط:</p>
+        <ul>
+          <li>مع مزوّدي الخدمات المذكورين أعلاه، لتشغيل التطبيق وعرض الإعلانات (وفق اختياراتك بشأن الإعلانات)</li>
+          <li>عندما يقتضي القانون ذلك، أو لحماية حقوق المستخدمين أو غيرهم وسلامتهم</li>
+        </ul>
+      </section>
+
+      <section id="retention">
+        <h2>8. الاحتفاظ بالبيانات</h2>
+        <ul>
+          <li>تُحذف بيانات <strong>التحليلات</strong> تلقائيًا بعد فترة الاحتفاظ المحددة في Firebase (14 شهرًا كحد أقصى).</li>
+          <li>تُحفظ <strong>إحصاءات المسابقة</strong> إلى أن تعيد تعيينها في التطبيق، فتصبح صفرًا.</li>
+          <li><strong>مجاميع التذاكر</strong> ليست بيانات شخصية وتُحفظ دون حد زمني.</li>
+          <li>تحتفظ Google بـ<strong>بيانات الإعلانات</strong> كما هو موضح في سياسة الخصوصية الخاصة بها.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2>9. الأمان</h2>
+        <p>تُشفَّر البيانات المرسلة إلى Firebase وGoogle أثناء نقلها (HTTPS)، والوصول إلى مشروع Firebase مقيّد. ومع ذلك، لا توجد طريقة نقل عبر الإنترنت أو تخزين إلكتروني آمنة بنسبة 100%، لذا لا يمكنني ضمان الأمان المطلق.</p>
+      </section>
+
+      <section id="rights">
+        <h2>10. حقوقك وخياراتك</h2>
+        <p>أنت تتحكم فيما يُجمع:</p>
+        <ul>
+          <li><strong>الإعلانات المخصصة:</strong> غيّر اختيارك من <em>إعدادات الخصوصية</em> في قائمة التطبيق (حيث يتوفر ذلك في منطقتك).</li>
+          <li><strong>التتبع:</strong> أوقفه من <em>إعدادات iOS ← الخصوصية والأمن ← التتبع</em>.</li>
+          <li><strong>الإعلانات كليًا:</strong> اشترِ إزالة الإعلانات.</li>
+          <li><strong>إحصاءات المسابقة:</strong> أعد تعيينها من شاشة المسابقة.</li>
+          <li><strong>كل شيء:</strong> إلغاء تثبيت التطبيق يوقف كل جمع للبيانات ويتخلص من معرّفاته العشوائية.</li>
+        </ul>
+        <p>بحسب مكان إقامتك (مثل اللائحة العامة لحماية البيانات GDPR في الاتحاد الأوروبي والمملكة المتحدة أو قانون CCPA في كاليفورنيا)، لك أيضًا الحق في الوصول إلى بياناتك الشخصية وتصحيحها أو حذفها، والاعتراض على معالجتها أو تقييدها، وتقديم شكوى إلى سلطة حماية البيانات المحلية.</p>
+        <p>لأن التطبيق بلا حسابات ولا يستخدم إلا معرّفات عشوائية، لا أستطيع عادةً ربط البيانات المخزنة بشخص بعينه. إذا أردت تقديم طلب، راسلني وسأبذل قصارى جهدي للمساعدة خلال 30 يومًا.</p>
+        <p><strong>الأساس القانوني (المنطقة الاقتصادية الأوروبية والمملكة المتحدة):</strong> تُعالج إحصاءات الاستخدام والميزات عبر الإنترنت على أساس مصلحتي المشروعة في تشغيل التطبيق وتحسينه. ولا تُعرض الإعلانات المخصصة إلا بموافقتك.</p>
+      </section>
+
+      <section id="children">
+        <h2>11. خصوصية الأطفال</h2>
+        <p>التطبيق غير موجّه للأطفال دون 13 عامًا، ولا أجمع منهم معلومات شخصية عن علم. إذا كنت والدًا أو وصيًا وتعتقد أن طفلك قدّم معلومات شخصية، فتواصل معي وسأحذفها.</p>
+      </section>
+
+      <section id="changes">
+        <h2>12. التغييرات على هذه السياسة</h2>
+        <p>قد أحدّث هذه السياسة من وقت لآخر، مثلًا عند إضافة ميزات جديدة إلى التطبيق. تُنشر التغييرات في هذه الصفحة مع تاريخ «آخر تحديث» جديد وتسري فور نشرها.</p>
+        <p>إذا اختلفت النسخ، فإن <a href="privacy-en.html" hreflang="en">النسخة الإنجليزية</a> هي المعتمدة.</p>
+      </section>
+
+      <section id="contact">
+        <h2>13. التواصل</h2>
+        <p>أسئلة أو طلبات أو اقتراحات بشأن سياسة الخصوصية هذه؟ تواصل معي:</p>
+        <div class="contact-card">
+          <span>Ariel Tkachenko · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=%D8%A7%D9%84%D9%85%D9%88%D9%84%D9%91%D8%AF%3A%20%D8%B3%D8%A4%D8%A7%D9%84%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9">راسلني</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Ariel Tkachenko · المولّد لنظام iOS</footer>
+</div>
+</body>
+</html>
