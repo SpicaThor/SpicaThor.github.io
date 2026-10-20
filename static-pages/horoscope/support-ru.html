@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Поддержка Гороскопа</title>
+<meta name="description" content="Помощь и контакты для Гороскопа — приложения с гороскопами на день, неделю и месяц.">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="en" href="support-en.html">
+<link rel="alternate" hreflang="ru" href="support-ru.html">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #2b366c;
+    --accent-soft: #e8eaf4;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #d6bd85;
+      --accent-soft: #2e2a1f;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { position: relative; font-size: 14px; }
+  nav.lang summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  nav.lang summary::-webkit-details-marker { display: none; }
+  nav.lang summary:hover { border-color: var(--muted); }
+  nav.lang summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav.lang svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+  nav.lang .chevron { transition: transform .15s; }
+  nav.lang details[open] .chevron { transform: rotate(180deg); }
+  nav.lang ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 6px);
+    z-index: 10;
+    min-width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  }
+  nav.lang li { margin: 0; }
+  nav.lang a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.lang a:hover { background: var(--bg); color: var(--accent); }
+  nav.lang a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">Поддержка</span>
+      <nav class="lang" aria-label="Язык">
+        <details>
+          <summary><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Русский</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="support-en.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="support-ru.html" hreflang="ru" lang="ru" aria-current="page">Русский</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+    <h1>Гороскоп</h1>
+    <p class="meta">Гороскопы на день, неделю и месяц для всех знаков</p>
+  </header>
+
+  <main>
+    <div class="summary">
+      <h2>Вопросы, проблемы или идеи</h2>
+      <p>Я читаю каждое письмо и обычно отвечаю в течение нескольких дней. Пожалуйста, укажите модель устройства и версию iOS.</p>
+      <div class="contact-card">
+        <span>Ариэль Ткаченко · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+        <a class="button" href="mailto:arieltkachenko@gmail.com?subject=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0%20%D0%93%D0%BE%D1%80%D0%BE%D1%81%D0%BA%D0%BE%D0%BF%D0%B0">Написать мне</a>
+      </div>
+    </div>
+
+      <section id="q1">
+        <h2>Я купил «Убрать рекламу». Как получить её на другом устройстве или после переустановки?</h2>
+        <p>Используйте тот же Apple Account — обычно приложение само узнаёт покупку, в том числе сделанную в прежних версиях приложения. Если реклама всё равно видна, откройте <strong>Настройки</strong> (шестерёнка на списке знаков) и нажмите <strong>«Восстановить покупки»</strong>. Платить второй раз не нужно.</p>
+      </section>
+      <section id="q2">
+        <h2>Как переключиться между гороскопами на русском и на английском?</h2>
+        <p>Гороскопы следуют языку приложения: на русском вы видите гороскопы на русском, на любом другом языке — на английском. Чтобы сменить язык, откройте <em>Настройки iOS → Приложения → Гороскоп → Язык</em>.</p>
+      </section>
+      <section id="q3">
+        <h2>Почему на русском больше категорий и дней, чем на английском?</h2>
+        <p>У каждого языка свой источник, и приложение показывает ровно то, что этот источник даёт. Русский источник предлагает несколько категорий (любовный, деловой, здоровье и другие) со вчерашнего дня по послезавтра, а также гороскопы на неделю. Английский — общий гороскоп на день, неделю и месяц, который публикуется по одному дню; прошедшие дни остаются доступны несколько месяцев.</p>
+      </section>
+      <section id="q4">
+        <h2>Гороскопы не загружаются.</h2>
+        <p>Для загрузки новых текстов нужен интернет. Гороскопы, которые вы уже открывали, хранятся на устройстве и показываются даже без сети. Если проблема не проходит, потяните список знаков вниз, чтобы обновить его, или напишите мне.</p>
+      </section>
+      <section id="q5">
+        <h2>Откуда берутся гороскопы?</h2>
+        <p>Гороскопы на русском берутся с <a href="https://ignio.com">Ignio.com</a>, на английском — из <a href="https://freehoroscopeapi.com">FreeHoroscopeAPI</a>. Они показываются без изменений, и под каждым текстом есть ссылка на источник.</p>
+      </section>
+      <section id="q6">
+        <h2>Почему меня спрашивают о рекламе и отслеживании?</h2>
+        <p>В некоторых регионах закон требует спросить разрешения, прежде чем показывать персонализированную рекламу, поэтому сначала появляется форма согласия Google. iOS спрашивает об отслеживании, только если вы разрешили персонализированную рекламу. Выбор можно изменить в любой момент в разделе <strong>«Настройки конфиденциальности»</strong> в настройках приложения (если он доступен), а <strong>«Убрать рекламу»</strong> отключает рекламу полностью. Подробнее — в <a href="privacy-ru.html">Политике конфиденциальности</a>.</p>
+      </section>
+
+      <section id="more">
+        <h2>Ещё</h2>
+        <p><a href="privacy-ru.html">Политика конфиденциальности</a> · Гороскоп в <a href="https://apps.apple.com/app/id626048545">App Store</a></p>
+      </section>
+  </main>
+
+  <footer>© 2026 Ариэль Ткаченко · Гороскоп для iOS</footer>
+</div>
+</body>
+</html>

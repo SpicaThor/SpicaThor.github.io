@@ -15,6 +15,9 @@ them (GitHub Pages can't redirect).
 | `static-pages/generator/privacy-<lang>.html` | Generator (iOS) privacy policy |
 | `static-pages/generator/privacy-android-<lang>.html` | Generator for Android privacy policy (linked from the Android app, AdMob and Google Play) |
 | `tools/generator/` | What builds the Generator pages: `build.py`, the templates, `style.css` and `text/<lang>.json` |
+| `static-pages/horoscope/support-<lang>.html` | Horoscope (iOS) support, `en` and `ru` |
+| `static-pages/horoscope/privacy-<lang>.html` | Horoscope (iOS) privacy policy, `en` and `ru` |
+| `tools/horoscope/` | What builds the Horoscope pages, the same way (`python3 tools/horoscope/build.py`); navy accent from the app |
 
 `<lang>` is each of Generator's 14 languages: en, ru, uk, he, ar, es, pt, fr, de, it, pl, tr, id, hi. The apps
 link to the policy in the language they're shown in, so every language the apps get needs pages here first.
