@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика конфиденциальности Гороскопа для Android</title>
+<meta name="description" content="Политика конфиденциальности Гороскопа для Android — бесплатного приложения с гороскопами на день, неделю и месяц от Ариэля Ткаченко.">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="en" href="privacy-android-en.html">
+<link rel="alternate" hreflang="ru" href="privacy-android-ru.html">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #2b366c;
+    --accent-soft: #e8eaf4;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #d6bd85;
+      --accent-soft: #2e2a1f;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { position: relative; font-size: 14px; }
+  nav.lang summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  nav.lang summary::-webkit-details-marker { display: none; }
+  nav.lang summary:hover { border-color: var(--muted); }
+  nav.lang summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav.lang svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+  nav.lang .chevron { transition: transform .15s; }
+  nav.lang details[open] .chevron { transform: rotate(180deg); }
+  nav.lang ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 6px);
+    z-index: 10;
+    min-width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  }
+  nav.lang li { margin: 0; }
+  nav.lang a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.lang a:hover { background: var(--bg); color: var(--accent); }
+  nav.lang a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">Политика конфиденциальности · Android</span>
+      <nav class="lang" aria-label="Язык">
+        <details>
+          <summary><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Русский</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="privacy-android-en.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="privacy-android-ru.html" hreflang="ru" lang="ru" aria-current="page">Русский</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+    <h1>Гороскоп</h1>
+    <p class="meta">Гороскопы на день, неделю и месяц для всех знаков · Обновлено 23 октября 2026 г.</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Содержание">
+      <strong>Содержание</strong>
+      <ol>
+        <li><a href="#about">Об этой политике</a></li>
+        <li><a href="#collect">Какие данные собираются</a></li>
+        <li><a href="#ads">Реклама и отслеживание</a></li>
+        <li><a href="#purchases">Покупки в приложении</a></li>
+        <li><a href="#third-parties">Сторонние сервисы</a></li>
+        <li><a href="#sharing">Передача и продажа данных</a></li>
+        <li><a href="#retention">Хранение данных</a></li>
+        <li><a href="#security">Безопасность</a></li>
+        <li><a href="#rights">Ваши права и выбор</a></li>
+        <li><a href="#children">Конфиденциальность детей</a></li>
+        <li><a href="#changes">Изменения политики</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>Коротко</h2>
+        <ul>
+          <li>Никаких аккаунтов и регистрации. Приложение никогда не спрашивает ваше имя, почту или дату рождения.</li>
+          <li>Гороскопы загружаются из моей собственной базы данных. Я не храню сведений о том, какие знаки и даты вы читаете.</li>
+          <li>Приложение не собирает статистику использования.</li>
+          <li>Бесплатная версия показывает рекламу Google. Там, где этого требует закон, вы решаете, может ли она быть персонализированной.</li>
+          <li>Я никогда не продаю ваши данные. Покупка <strong>«Убрать рекламу»</strong> полностью отключает рекламу.</li>
+        </ul>
+      </div>
+
+      <section id="about">
+        <h2>1. Об этой политике</h2>
+        <p>Гороскоп («приложение») создаёт и поддерживает Ариэль Ткаченко, независимый разработчик («я»). Приложение бесплатное и существует за счёт рекламы.</p>
+        <p>Эта политика объясняет, какие данные собирает приложение, зачем, кому они передаются и какой у вас есть выбор. Пользуясь приложением, вы соглашаетесь со сбором и использованием данных, описанными здесь.</p>
+      </section>
+      <section id="collect">
+        <h2>2. Какие данные собираются</h2>
+        <p>Приложение не собирает данные, которые прямо указывают на вас: имя, адрес почты, номер телефона, дату рождения или местоположение. Оно работает так:</p>
+        <h3>Загрузка гороскопов (Firebase)</h3>
+        <ul>
+          <li><strong>Анонимный вход.</strong> Чтобы читать базу данных, приложение анонимно входит в Firebase Authentication. Firebase присваивает случайный идентификатор, не связанный с вашей личностью, почтой или аккаунтом Google. Он хранится в данных приложения на устройстве и удаляется вместе с приложением.</li>
+          <li><strong>Тексты гороскопов</strong> читаются из моей базы данных Cloud Firestore. Как и любой сайт, серверы Google получают ваш IP-адрес и основные сведения о запросе. Приложение только читает: оно ничего не записывает о вас в базу, и я не храню сведений о том, какие знаки, категории и даты вы читаете.</li>
+          <li><strong>Проверка подлинности (Firebase App Check).</strong> Чтобы базу данных могло читать только настоящее приложение, оно подтверждает свою подлинность через Google Play Integrity, который проверяет подлинность приложения и устройства. Сведения о вас для этого не используются.</li>
+          <li><strong>На вашем устройстве.</strong> Открытые тексты сохраняются на устройстве, чтобы их можно было снова показать без интернета. Ваш выбор в приложении (знак, категория, дата) никуда не отправляется.</li>
+        </ul>
+        <h3>Откуда берутся гороскопы</h3>
+        <p>Гороскопы на русском берутся с <a href="https://ignio.com" target="_blank" rel="noopener">Ignio.com</a>, на английском — из <a href="https://freehoroscopeapi.com" target="_blank" rel="noopener">FreeHoroscopeAPI</a>. Мой сервер раз в день копирует их в базу данных. Само приложение к этим источникам не обращается, поэтому они ничего о вас не получают.</p>
+        <h3>Никакой статистики</h3>
+        <p>В приложении нет аналитики. Оно не записывает, какие экраны вы открываете и что читаете.</p>
+      </section>
+      <section id="ads">
+        <h2>3. Реклама и отслеживание</h2>
+        <p>Бесплатная версия показывает рекламный баннер <strong>Google AdMob</strong>. Чтобы показывать и учитывать рекламу, Google может собирать ваш IP-адрес, сведения об устройстве и приложении, взаимодействие с рекламой и рекламный идентификатор устройства, если он есть.</p>
+        <ul>
+          <li><strong>Согласие (ЕЭЗ, Великобритания, Швейцария и некоторые штаты США).</strong> Там, где этого требует закон, приложение показывает форму согласия Google до загрузки рекламы. Вы можете выбрать, можно ли использовать ваши данные для персонализированной рекламы, и в любой момент изменить выбор в разделе <strong>«Настройки конфиденциальности»</strong> в настройках приложения.</li>
+          <li><strong>Рекламный идентификатор.</strong> Android позволяет в любой момент удалить или сбросить рекламный идентификатор: <em>Настройки Android → Безопасность и конфиденциальность → Конфиденциальность → Реклама</em> (путь зависит от устройства). Без него реклама не персонализируется на его основе.</li>
+          <li><strong>«Убрать рекламу».</strong> Если вы купили «Убрать рекламу», приложение вообще не загружает рекламу и не показывает форму согласия.</li>
+        </ul>
+        <p>Подробнее о том, <a href="https://policies.google.com/technologies/partner-sites?hl=ru" target="_blank" rel="noopener">как Google использует информацию из приложений, использующих его сервисы</a>.</p>
+      </section>
+      <section id="purchases">
+        <h2>4. Покупки в приложении</h2>
+        <p>Необязательную покупку «Убрать рекламу» полностью обрабатывает Google через Google Play. Я не получаю ваше имя, аккаунт Google или платёжные данные. Приложение лишь узнаёт у Google Play, активна ли покупка в вашем аккаунте, чтобы её можно было восстановить на других устройствах.</p>
+      </section>
+      <section id="third-parties">
+        <h2>5. Сторонние сервисы</h2>
+        <p>Эти сервисы обрабатывают данные для работы приложения, каждый по своей политике конфиденциальности:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Сервис</th><th>Компания</th><th>Назначение</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase</a></td>
+                <td>Google LLC</td>
+                <td>Анонимный вход, проверка подлинности приложения, база данных гороскопов</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=ru" target="_blank" rel="noopener">AdMob</a></td>
+                <td>Google LLC</td>
+                <td>Показ рекламы, управление согласием</td>
+              </tr>
+              <tr>
+                <td><a href="https://policies.google.com/privacy?hl=ru" target="_blank" rel="noopener">Google Play</a></td>
+                <td>Google LLC</td>
+                <td>Покупки в приложении, Play Integrity</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Google обрабатывает данные на серверах по всему миру, в том числе в США, с применением своих стандартных мер защиты данных.</p>
+      </section>
+      <section id="sharing">
+        <h2>6. Передача и продажа данных</h2>
+        <p>Я <strong>не</strong> продаю, не сдаю в аренду и не обмениваю ваши данные. Они передаются только:</p>
+        <ul>
+          <li>Перечисленным выше сервисам — для работы приложения и показа рекламы (в соответствии с вашим выбором)</li>
+          <li>Когда этого требует закон или для защиты прав и безопасности пользователей и других людей</li>
+        </ul>
+      </section>
+      <section id="retention">
+        <h2>7. Хранение данных</h2>
+        <ul>
+          <li><strong>Анонимный идентификатор</strong> хранится в Firebase Authentication. Больше ничего вместе с ним не хранится.</li>
+          <li><strong>Сведения о запросах</strong>, которые обрабатывают серверы Google, Google хранит согласно своей политике конфиденциальности; я не веду журналов того, что вы читаете.</li>
+          <li><strong>Рекламные данные</strong> Google хранит согласно своей политике конфиденциальности.</li>
+        </ul>
+      </section>
+      <section id="security">
+        <h2>8. Безопасность</h2>
+        <p>Данные, передаваемые в Firebase и Google, шифруются при передаче (HTTPS), читать базу данных может только настоящее приложение, а доступ к проекту Firebase ограничен. Однако ни один способ передачи через интернет или электронного хранения не защищён на 100%, поэтому я не могу гарантировать абсолютную безопасность.</p>
+      </section>
+      <section id="rights">
+        <h2>9. Ваши права и выбор</h2>
+        <p>Вы управляете тем, что собирается:</p>
+        <ul>
+          <li><strong>Персонализированная реклама:</strong> измените выбор в разделе <em>«Настройки конфиденциальности»</em> в настройках приложения (если он доступен в вашем регионе).</li>
+          <li><strong>Рекламный идентификатор:</strong> удалите или сбросьте его: <em>Настройки Android → Безопасность и конфиденциальность → Конфиденциальность → Реклама</em>.</li>
+          <li><strong>Реклама целиком:</strong> купите «Убрать рекламу».</li>
+          <li><strong>Всё сразу:</strong> удаление приложения прекращает любой сбор данных.</li>
+        </ul>
+        <p>В зависимости от того, где вы живёте (например, по GDPR в ЕС и Великобритании или CCPA в Калифорнии), у вас также есть право получить, исправить или удалить свои персональные данные, возражать против их обработки или ограничить её и подать жалобу в местный орган по защите данных.</p>
+        <p>Поскольку в приложении нет аккаунтов и используется только случайный идентификатор, обычно я не могу связать хранимые данные с конкретным человеком. Если хотите отправить запрос, напишите мне, и я постараюсь помочь в течение 30 дней.</p>
+        <p><strong>Правовое основание (ЕЭЗ и Великобритания):</strong> анонимный вход и проверка подлинности приложения обрабатываются на основании моего законного интереса в работе приложения и защите его базы данных. Персонализированная реклама показывается только с вашего согласия.</p>
+      </section>
+      <section id="children">
+        <h2>10. Конфиденциальность детей</h2>
+        <p>Приложение не предназначено для детей младше 13 лет, и я сознательно не собираю их персональные данные. Если вы родитель или опекун и считаете, что ваш ребёнок предоставил персональные данные, напишите мне, и я их удалю.</p>
+      </section>
+      <section id="changes">
+        <h2>11. Изменения политики</h2>
+        <p>Я могу время от времени обновлять эту политику, например когда в приложении появляются новые функции. Изменения публикуются на этой странице с новой датой обновления и вступают в силу сразу после публикации.</p>
+        <p>Если версии расходятся, преимущество имеет <a href="privacy-android-en.html" hreflang="en">английская версия</a>.</p>
+      </section>
+      <section id="contact">
+        <h2>12. Контакты</h2>
+        <p>Вопросы, запросы или предложения по этой политике? Напишите мне:</p>
+        <div class="contact-card">
+          <span>Ариэль Ткаченко · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BE%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%93%D0%BE%D1%80%D0%BE%D1%81%D0%BA%D0%BE%D0%BF%D0%B0">Написать мне</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Ариэль Ткаченко · Гороскоп для Android</footer>
+</div>
+</body>
+</html>

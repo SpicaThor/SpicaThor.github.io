@@ -4,8 +4,9 @@ one text table per language (text/<code>.json), and the language links on the fr
 
     python3 tools/horoscope/build.py
 
-Edit the template or the tables, never the generated pages. Adapted from tools/generator/build.py (iOS
-only, two languages). Template lines starting with @translated appear only on non-English pages.
+Edit the template or the tables, never the generated pages. Adapted from tools/generator/build.py (two
+languages). A table entry ending in _ios or _android replaces the plain one on that platform's pages;
+template lines starting with @ios, @android or @translated appear only on those pages.
 Text can hold these tokens: {privacy_href}, {english_href}, {hl}.
 """
 import json
@@ -24,6 +25,7 @@ RIGHT_TO_LEFT = set()
 PAGES = {  # file prefix -> (template, platform)
     "support": ("support.html", "ios"),
     "privacy": ("privacy.html", "ios"),
+    "privacy-android": ("privacy.html", "android"),
 }
 
 STYLE = (HERE / "style.css").read_text().rstrip("\n")
@@ -47,7 +49,7 @@ def value(table, key, platform):
 def page(prefix, code):
     template, platform = PAGES[prefix]
     table = TABLES[code]
-    privacy = "privacy"
+    privacy = "privacy" if platform == "ios" else "privacy-android"
     # The language menu: a <details> dropdown, so the pages need no script.
     items = "\n".join(
         f'            <li><a href="{prefix}-{c}.html" hreflang="{c}" lang="{c}"'

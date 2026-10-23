@@ -17,6 +17,7 @@ them (GitHub Pages can't redirect).
 | `tools/generator/` | What builds the Generator pages: `build.py`, the templates, `style.css` and `text/<lang>.json` |
 | `static-pages/horoscope/support-<lang>.html` | Horoscope (iOS) support, `en` and `ru` |
 | `static-pages/horoscope/privacy-<lang>.html` | Horoscope (iOS) privacy policy, `en` and `ru` |
+| `static-pages/horoscope/privacy-android-<lang>.html` | Horoscope for Android privacy policy, `en` and `ru` (linked from the Android app, AdMob and Google Play) |
 | `tools/horoscope/` | What builds the Horoscope pages, the same way (`python3 tools/horoscope/build.py`); navy accent from the app |
 
 `<lang>` is each of Generator's 14 languages: en, ru, uk, he, ar, es, pt, fr, de, it, pl, tr, id, hi. The apps
