@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samsquares Privacy Policy</title>
+<meta name="description" content="Privacy Policy for Samsquares, the spatial reasoning puzzle game for children. The app collects no data.">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #6f00bb;
+    --accent-soft: #f1e6fa;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #c99bf0;
+      --accent-soft: #2a1d36;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { position: relative; font-size: 14px; }
+  nav.lang summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  nav.lang summary::-webkit-details-marker { display: none; }
+  nav.lang summary:hover { border-color: var(--muted); }
+  nav.lang summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav.lang svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+  nav.lang .chevron { transition: transform .15s; }
+  nav.lang details[open] .chevron { transform: rotate(180deg); }
+  nav.lang ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 6px);
+    z-index: 10;
+    min-width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  }
+  nav.lang li { margin: 0; }
+  nav.lang a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.lang a:hover { background: var(--bg); color: var(--accent); }
+  nav.lang a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">Privacy Policy</span>
+    </div>
+    <h1>Samsquares</h1>
+    <p class="meta">Kohs cube puzzles for children: rebuild each picture from two-color squares · Last updated: October 31, 2026</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Contents">
+      <strong>Contents</strong>
+      <ol>
+        <li><a href="#about">About this policy</a></li>
+        <li><a href="#collect">Information collected</a></li>
+        <li><a href="#device">What stays on your device</a></li>
+        <li><a href="#third-parties">Third-party services</a></li>
+        <li><a href="#children">Children's privacy</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>The short version</h2>
+        <ul>
+          <li>Samsquares collects no data. Nothing about you or your child leaves the device.</li>
+          <li>The app works fully offline. It makes no network connections of its own.</li>
+          <li>No ads, no analytics, no tracking, no accounts and no in-app purchases.</li>
+          <li>Stars and settings are kept only on the device.</li>
+        </ul>
+      </div>
+
+      <section id="about">
+        <h2>1. About this policy</h2>
+        <p>Samsquares (the “app”) is a puzzle game for children, made by MathOutsideTheBox and built and maintained by Ariel Tkachenko (“I”, “me”).</p>
+        <p>This policy explains what the app does with information. It applies to version 2.0 and later. Earlier versions used Google Firebase for anonymous usage statistics and crash reports; version 2.0 removed it.</p>
+      </section>
+      <section id="collect">
+        <h2>2. Information collected</h2>
+        <p>None. The app doesn't ask for names, email addresses, ages or any other personal information, has no sign-in, and doesn't record or send how it's used. There's no analytics, advertising or tracking code in the app, and it doesn't use the advertising identifier.</p>
+      </section>
+      <section id="device">
+        <h2>3. What stays on your device</h2>
+        <p>To work, the app keeps a little information in its own storage on the device:</p>
+        <ul>
+          <li><strong>Stars</strong> earned for each puzzle, so the game knows which puzzles are solved.</li>
+          <li><strong>Settings</strong>: music and sound effect volume, haptic feedback and which game hints have been shown.</li>
+        </ul>
+        <p>This stays on the device and in its iCloud or computer backups, if you make them. I have no access to it. Clearing a level or all levels in the app's Settings removes the stars; deleting the app removes everything.</p>
+      </section>
+      <section id="third-parties">
+        <h2>4. Third-party services</h2>
+        <p>The app contains no third-party code. Apple distributes it through the App Store, under <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>. The About screen has a link to email me and a link to the website of the game's music; both open only when you tap them, in the Mail app and in Safari.</p>
+      </section>
+      <section id="children">
+        <h2>5. Children's privacy</h2>
+        <p>Samsquares is made for children, which is one reason it collects nothing. It has no chat, no sharing, no ads and no purchases, and nothing a child does in the game is sent anywhere.</p>
+      </section>
+      <section id="changes">
+        <h2>6. Changes to this policy</h2>
+        <p>If the app ever starts handling information differently, this page will be updated before that version is released, with a new date at the top.</p>
+      </section>
+      <section id="contact">
+        <h2>7. Contact</h2>
+        <p>Questions about privacy in Samsquares? Write to me:</p>
+        <div class="contact-card">
+          <span>Ariel Tkachenko · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=Samsquares%20privacy%20question">Email me</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Ariel Tkachenko · Samsquares for iPhone and iPad</footer>
+</div>
+</body>
+</html>

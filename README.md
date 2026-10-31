@@ -19,6 +19,9 @@ them (GitHub Pages can't redirect).
 | `static-pages/horoscope/privacy-<lang>.html` | Horoscope (iOS) privacy policy, `en` and `ru` |
 | `static-pages/horoscope/privacy-android-<lang>.html` | Horoscope for Android privacy policy, `en` and `ru` (linked from the Android app, AdMob and Google Play) |
 | `tools/horoscope/` | What builds the Horoscope pages, the same way (`python3 tools/horoscope/build.py`); navy accent from the app |
+| `static-pages/samsquares/support-en.html` | Samsquares (iOS) support, English only |
+| `static-pages/samsquares/privacy-en.html` | Samsquares (iOS) privacy policy, English only |
+| `tools/samsquares/` | What builds the Samsquares pages (`python3 tools/samsquares/build.py`): one language, no language menu; purple accent from the app |
 
 `<lang>` is each of Generator's 14 languages: en, ru, uk, he, ar, es, pt, fr, de, it, pl, tr, id, hi. The apps
 link to the policy in the language they're shown in, so every language the apps get needs pages here first.
