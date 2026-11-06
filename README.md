@@ -14,6 +14,7 @@ them (GitHub Pages can't redirect).
 | `static-pages/generator/support-<lang>.html` | Generator (iOS) support |
 | `static-pages/generator/privacy-<lang>.html` | Generator (iOS) privacy policy |
 | `static-pages/generator/privacy-android-<lang>.html` | Generator for Android privacy policy (linked from the Android app, AdMob and Google Play) |
+| `static-pages/generator/terms-en.html` | Generator Terms of Use, English only, both platforms (linked from Google Play's Terms of Service field) |
 | `tools/generator/` | What builds the Generator pages: `build.py`, the templates, `style.css` and `text/<lang>.json` |
 | `static-pages/horoscope/support-<lang>.html` | Horoscope (iOS) support, `en` and `ru` |
 | `static-pages/horoscope/privacy-<lang>.html` | Horoscope (iOS) privacy policy, `en` and `ru` |

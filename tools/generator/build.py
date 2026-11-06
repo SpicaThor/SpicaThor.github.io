@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Writes Generator's support and privacy pages in every language from one template per page and
+"""Writes Generator's support and privacy pages in every language, the English Terms of Use, from one template per page and
 one text table per language (text/<code>.json), and the language links on the front page.
 
     python3 tools/generator/build.py
@@ -134,5 +134,8 @@ check()
 for prefix in PAGES:
     for code in LANGUAGES:
         (OUT / f"{prefix}-{code}.html").write_text(page(prefix, code))
+# Terms of Use: English only, for both platforms (legal text isn't machine-translated), with the
+# text in the template itself.
+(OUT / "terms-en.html").write_text((HERE / "terms.html").read_text().replace("[[style]]", STYLE))
 front_page()
-print(f"wrote {len(PAGES) * len(LANGUAGES)} pages")
+print(f"wrote {len(PAGES) * len(LANGUAGES) + 1} pages")

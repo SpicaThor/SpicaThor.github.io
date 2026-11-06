@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generator Terms of Use</title>
+<meta name="description" content="Terms of Use for Generator, the random number, password, lottery ticket, coin, dice, quote, joke, quiz and QR code app by Ariel Tkachenko, on iOS and Android.">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2330;
+    --muted: #5b6475;
+    --border: #e3e6ec;
+    --accent: #c0262d;
+    --accent-soft: #fbeaea;
+    --ok: #1f8a4c;
+    --ok-soft: #e7f5ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b;
+      --surface: #1a1e26;
+      --text: #e6e9ef;
+      --muted: #9aa3b2;
+      --border: #2a303b;
+      --accent: #ff6961;
+      --accent-soft: #3a1f22;
+      --ok: #5ccf8d;
+      --ok-soft: #173024;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px 64px;
+  }
+
+  header.hero { padding: 48px 0 28px; }
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  nav.lang { position: relative; font-size: 14px; }
+  nav.lang summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  nav.lang summary::-webkit-details-marker { display: none; }
+  nav.lang summary:hover { border-color: var(--muted); }
+  nav.lang summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  nav.lang svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+  nav.lang .chevron { transition: transform .15s; }
+  nav.lang details[open] .chevron { transform: rotate(180deg); }
+  nav.lang ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 6px);
+    z-index: 10;
+    min-width: 200px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  }
+  nav.lang li { margin: 0; }
+  nav.lang a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.lang a:hover { background: var(--bg); color: var(--accent); }
+  nav.lang a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    margin: 14px 0 8px;
+  }
+  .meta { color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: 240px 1fr; align-items: start; }
+    nav.toc { position: sticky; top: 24px; }
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-inline-start: 20px; }
+  nav.toc li { margin: 4px 0; }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+
+  main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 28px 28px;
+    min-width: 0;
+  }
+  @media (max-width: 560px) { main { padding: 4px 18px 20px; } }
+
+  section { padding-top: 20px; scroll-margin-top: 16px; }
+  section + section { border-top: 1px solid var(--border); margin-top: 20px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 0 0 10px; }
+  h3 { font-size: 16px; margin: 18px 0 6px; }
+  p, ul { margin: 0 0 12px; }
+  li { margin: 4px 0; }
+
+  .summary {
+    background: var(--ok-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .summary h2 { color: var(--ok); font-size: 18px; }
+  .summary ul { padding-inline-start: 20px; margin: 0; }
+
+  .table-scroll { overflow-x: auto; margin-bottom: 12px; }
+  table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: start;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) { .button { color: #1a0d0e; } }
+
+  footer {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    nav.toc, nav.lang, .button { display: none; }
+    main { border: 0; padding: 0; }
+    .layout { display: block; }
+    a { color: #000; }
+    table { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-top">
+      <span class="eyebrow">Terms of Use</span>
+    </div>
+    <h1>Generator</h1>
+    <p class="meta">For iPhone, iPad and Android · Last updated: November 6, 2026</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Contents">
+      <strong>Contents</strong>
+      <ol>
+        <li><a href="#who">Who I am</a></li>
+        <li><a href="#agreement">These terms</a></li>
+        <li><a href="#app">The app</a></li>
+        <li><a href="#purchases">Remove Ads</a></li>
+        <li><a href="#use">Using the app</a></li>
+        <li><a href="#results">Random results and passwords</a></li>
+        <li><a href="#content">Third-party content and ads</a></li>
+        <li><a href="#ownership">Ownership</a></li>
+        <li><a href="#warranty">No warranty and liability</a></li>
+        <li><a href="#law">Governing law</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <div class="summary">
+        <h2>The short version</h2>
+        <ul>
+          <li>Generator is free and shows ads. A one-time Remove Ads purchase turns them off.</li>
+          <li>Use it for anything lawful. Don't use it to break the law or to abuse the app's online features.</li>
+          <li>Results are random. Don't rely on them where money, safety or the law depend on a certified draw.</li>
+          <li>Quotes, jokes, trivia and ads come from third parties, not from me.</li>
+          <li>Your rights as a consumer under the law of your country always apply.</li>
+        </ul>
+      </div>
+
+      <section id="who">
+        <h2>1. Who I am</h2>
+        <p>Generator is made and published by Ariel Tkachenko, an independent developer based in Israel (“I”, “me”). You can reach me at <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a>.</p>
+      </section>
+
+      <section id="agreement">
+        <h2>2. These terms</h2>
+        <p>These terms apply to the Generator app on iOS (App Store) and Android (Google Play). By using the app you agree to them. If you don't agree, please don't use the app.</p>
+        <p>On iOS, Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Licensed Application End User License Agreement</a> also applies. On Android, the <a href="https://play.google.com/about/play-terms/">Google Play Terms of Service</a> also apply. Where these terms and the store's terms differ, the store's terms apply to your relationship with the store.</p>
+        <p>How the app handles your data is described in the Privacy Policy: <a href="privacy-en.html">iOS</a>, <a href="privacy-android-en.html">Android</a>.</p>
+      </section>
+
+      <section id="app">
+        <h2>3. The app</h2>
+        <p>Generator makes random numbers, passwords, lottery tickets, coin tosses and dice rolls, shows quotes, jokes and trivia questions, and creates QR codes. It's free to download and use, and it shows ads.</p>
+        <p>I may change, add or remove features, and I can't promise that every feature, especially those that use online services, will always be available.</p>
+      </section>
+
+      <section id="purchases">
+        <h2>4. Remove Ads</h2>
+        <p>Remove Ads is an optional one-time purchase that turns off ads in the app. It's sold and charged by Apple or Google, under their terms. Refunds are handled by them: <a href="https://reportaproblem.apple.com/">Apple</a>, <a href="https://support.google.com/googleplay/answer/2479637">Google Play</a>.</p>
+        <p>The purchase is tied to your Apple or Google account and can be restored on your other devices with Restore Purchases in the app's Settings. It covers ads only and doesn't unlock anything else.</p>
+      </section>
+
+      <section id="use">
+        <h2>5. Using the app</h2>
+        <p>You may use the app for personal and business purposes, as long as the use is lawful. Please don't:</p>
+        <ul>
+          <li>use the app, its QR codes or what it generates to break the law or harm others;</li>
+          <li>interfere with the app's online features, such as the shared lucky ticket counter or the trivia scores, for example by sending them automated or false data;</li>
+          <li>copy, resell or redistribute the app itself, except as the law allows.</li>
+        </ul>
+      </section>
+
+      <section id="results">
+        <h2>6. Random results and passwords</h2>
+        <p>Numbers, tickets, coin tosses and dice rolls are produced by your device's random number generator. They are meant for everyday use, games and informal draws. They are not certified for regulated lotteries, gambling or other uses where a draw must be audited.</p>
+        <p>Passwords are generated on your device and aren't sent anywhere. You are responsible for storing them safely and for choosing settings strong enough for your needs. The strength meter is an estimate, not a guarantee.</p>
+      </section>
+
+      <section id="content">
+        <h2>7. Third-party content and ads</h2>
+        <p>Quotes, jokes and trivia questions are loaded from third-party services, listed in the Privacy Policy. They don't express my views, and I can't check them all for accuracy. If you find something inappropriate, please email me and I'll look into it.</p>
+        <p>Ads are provided by Google AdMob. I don't choose individual ads and I'm not responsible for the advertisers' products, sites or claims.</p>
+      </section>
+
+      <section id="ownership">
+        <h2>8. Ownership</h2>
+        <p>The app, its design and its code belong to me. The open-source libraries it uses keep their own licenses, listed in the app under Settings → Credits. What you create with the app, such as QR codes and generated passwords or numbers, is yours.</p>
+      </section>
+
+      <section id="warranty">
+        <h2>9. No warranty and liability</h2>
+        <p>The app is provided “as is” and “as available”, without warranties of any kind, to the extent the law allows. I do my best to keep it working and accurate, but I can't guarantee that it will be error-free or uninterrupted.</p>
+        <p>To the extent the law allows, I'm not liable for indirect or consequential losses, or for losses caused by relying on random results, third-party content or ads. If I am liable, my total liability is limited to the amount you paid for the app, which is the price of Remove Ads, if you bought it.</p>
+        <p>Nothing in these terms limits rights that you have as a consumer and that can't be excluded by contract, such as statutory guarantees under the law of your country.</p>
+      </section>
+
+      <section id="law">
+        <h2>10. Governing law</h2>
+        <p>These terms are governed by the laws of the State of Israel. If you are a consumer, you also keep the protection of the mandatory laws of the country where you live, and you may bring a claim in its courts.</p>
+      </section>
+
+      <section id="changes">
+        <h2>11. Changes</h2>
+        <p>I may update these terms, for example when the app gains new features. Changes are posted on this page with a new “Last updated” date and take effect when they're posted. If you keep using the app after a change, the updated terms apply.</p>
+      </section>
+
+      <section id="contact">
+        <h2>12. Contact</h2>
+        <p>Questions about these terms? Get in touch:</p>
+        <div class="contact-card">
+          <span>Ariel Tkachenko · <a href="mailto:arieltkachenko@gmail.com">arieltkachenko@gmail.com</a></span>
+          <a class="button" href="mailto:arieltkachenko@gmail.com?subject=Generator%20terms%20question">Email me</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2026 Ariel Tkachenko · Generator for iOS and Android · <a href="support-en.html">Support</a></footer>
+</div>
+</body>
+</html>
