@@ -23,6 +23,7 @@ them (GitHub Pages can't redirect).
 | `static-pages/samsquares/support-en.html` | Samsquares (iOS) support, English only |
 | `static-pages/samsquares/privacy-en.html` | Samsquares (iOS) privacy policy, English only |
 | `tools/samsquares/` | What builds the Samsquares pages (`python3 tools/samsquares/build.py`): one language, no language menu; purple accent from the app |
+| `axionix/railways.json` | Where Axionix's train mode finds its railway tiles (hosts per tile format). Copied from `tools/railways/publish/railways.json` in the Axionix repo; the app has the same built in. Keep the path: apps read it |
 
 `<lang>` is each of Generator's 14 languages: en, ru, uk, he, ar, es, pt, fr, de, it, pl, tr, id, hi. The apps
 link to the policy in the language they're shown in, so every language the apps get needs pages here first.
