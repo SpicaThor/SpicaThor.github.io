@@ -1,0 +1,8 @@
+{
+  "config": 1,
+  "tiles": {
+    "1": {
+      "hosts": ["https://spicathor.github.io/railway-tiles/v1/"]
+    }
+  }
+}
